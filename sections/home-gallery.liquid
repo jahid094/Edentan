@@ -1,0 +1,128 @@
+
+  <body>
+    <div id="frame" class="frame">
+      <div class="home-container" id="home-container">
+        <nav class="home-nav">
+          <ul class="nav-list">
+            {{ shop.brand.logo | image_url: width: 300 | image_tag }}
+            <li class="nav-list-option"><a href="/index.html">Home</a></li>
+            <li class="nav-list-option"><a href="/home">FW25</a></li>
+            <li class="nav-list-option"><a href="/shop.html">Shop</a></li>
+            <li class="nav-list-option"><a href="/home">Media</a></li>
+            <li class="nav-list-option"><a href="/home">Contact</a></li>
+          </ul>
+        </nav>
+        </div> 
+      </div>
+    <script type="module" src="index.mjs"></script>
+    <script type="module" src="data/products.mjs"></script>
+  </body>
+
+  <style>
+     .home-nav {
+    box-sizing: border-box;
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    grid-area: nav;
+    padding: 70px;
+    background-image: url("public/images/Paper-Logo-Background-Middle.png");
+    background-size: 100% 100%;
+}
+
+.main-nav {
+    position: fixed;
+    /* left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%); */
+    background-image: url("public/images/Paper-Logo.png");
+    background-size: 100% 100%;
+    padding: 10px 35px 40px 20px ;
+    z-index: 1;
+}
+
+.nav-list {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    margin: auto;
+    padding: 0;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+    margin: 0;
+    text-align: center;
+    text-shadow: 0px 3px 3px grey;
+}
+
+.logo {
+    height: 10em;
+    margin: 0 auto 0.5em;
+}
+
+.nav-list-option {
+    padding: 0.5em;
+    font-size: 1rem;
+    
+}
+
+.nav-list-option:hover,
+.footer-list-option:hover {
+    text-decoration: none;
+    color: red;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.footer{
+    box-sizing: border-box;
+    position: fixed;
+    padding: 25px 0 15px 0;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 0;
+    background-image: url("public/images/Paper-Logo-Footer.png");
+    background-size: 100% 100%;
+    width: 40vw;
+    z-index: 1;
+}
+
+.footer-list{
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.footer-list-option{
+    display: block;
+    margin-top: 20px;
+}
+  </style>
+  
+{% schema %}
+  {
+    "name": "Home Gallery",
+    "settings": [], 
+    "presets": [
+      {
+       "name": "Home Gallery" 
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+ 
+
+{% endstylesheet %}
+
+{% javascript %}
+
+  
+{% endjavascript %}

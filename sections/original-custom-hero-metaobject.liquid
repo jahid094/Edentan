@@ -1,0 +1,203 @@
+{{ 'custom-hero.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .custom_hero_product_image {
+    max-width: {{ section.settings.image_width_1 }}rem;
+  }
+  @media only screen and (max-width:650px){
+    .custom_hero_product_image {
+      max-width: {{ section.settings.image_width_2 }}rem;
+    }
+  }
+</style>
+<div class="custom-hero-container custom-hero-container-metaobject">
+  <div class="custom-hero-container-zoom">
+    <div onclick="zoomIn()" class="custom-hero-container-zoom-in">
+      <img
+        class="custom-hero-container-zoom-img"
+        width=""
+        height=""
+        src="https://cdn.shopify.com/s/files/1/0801/5963/7830/files/Group_117.svg?v=1711227170"
+      >
+    </div>
+    <div onclick="zoomOut()" class="custom-hero-container-zoom-out">
+      <img
+        class="custom-hero-container-zoom-img"
+        width=""
+        height=""
+        src="https://cdn.shopify.com/s/files/1/0801/5963/7830/files/Group_118.svg?v=1711227170"
+      >
+    </div>
+  </div>
+
+  <div class="custom-hero-container-images">
+    <div class="vignette"><span></span></div>
+    <div class="custom-hero-container-images-metaobject-products">
+      
+      {% assign entry_count = 0 %}
+      {% for value in shop.metaobjects.hero.values %}
+        {% assign entry_count = entry_count | plus: 1 %}
+      {% endfor %}
+      
+      <!-- PLEASE CHANGE THE NAME HERE -->
+      {% for value in shop.metaobjects.hero.values %}
+        {% assign grid_area = value.home_position | minus: entry_count %}
+        {% assign grid_area = grid_area | minus: collections.all.products.size %}
+        {% assign grid_area = grid_area | plus: 1 %}
+        {% assign grid_area = grid_area | times: -1 %}        
+        <a
+          target="_blank"
+          class="custom_hero_product_image-link"
+          href="{{ value.link }}"
+          style="grid-area:{{ value.main_position }}{{ grid_area }}"
+        >
+          <img
+            width=""
+            height=""
+            class="custom_hero_product_image"
+            src="{{ value.featured_image | img_url: 'large' }}"
+          >
+        </a>
+      {% endfor %}
+
+      {% for product in collections.all.products %}
+        {% assign grid_area = product.metafields.custom.grid_quarter | minus: entry_count %}
+        {% assign grid_area = grid_area | minus: collections.all.products.size %}
+        {% assign grid_area = grid_area | plus: 1 %}
+        {% assign grid_area = grid_area | times: -1 %}  
+        <a
+          target="_blank"
+          class="custom_hero_product_image-link"
+          href="{{ product.url }}"
+          style="grid-area:{{ product.metafields.custom.grid_area }}{{ grid_area }}"
+        >
+          <img
+            width=""
+            height=""
+            class="custom_hero_product_image"
+            src="{{ product | img_url: 'large' }}"
+          >
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="custom-hero-menu-container">
+    <a href="/"
+      ><img width="" height="" src="{{ shop.brand.logo | img_url: 'large' }}" class="custom-hero-menu-logo"
+    ></a>
+    <div class="custom-hero-menu-links">
+      {%- for link in section.settings.menu.links -%}
+        <a class="custom-hero-menu-link" href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+    window.onload = () => {
+        let frame = document.querySelector(".custom-hero-container-images-metaobject-products")
+        let container = document.querySelector(".custom-hero-container-images-metaobject-products")
+        let frameWidth = frame.clientWidth
+        let containerWidth = container.clientWidth
+        let frameHeight = frame.clientHeight
+        let containerHeight = container.clientHeight
+        frame.scrollLeft = (containerWidth - frameWidth) / 2;
+        frame.scrollTop = (containerHeight - frameHeight) / 2;
+    };
+    function zoomIn() {
+        let currentSize = Number(document.querySelector(".custom_hero_product_image").getAttribute("data-image-size"));
+        let mql = window.matchMedia("(max-width: 650px)");
+        if (!document.querySelector(".custom_hero_product_image").getAttribute("data-image-size")) {
+            if (mql.matches) {
+                currentSize = {{ section.settings.image_width_2 }}
+            }
+            else if (!mql.matches) {
+                currentSize = {{ section.settings.image_width_1 }}
+            }
+        }
+      
+        // you can change maximum size here
+        if (currentSize < 90) {
+            currentSize += 4; // you can change the zoom in with every zoom here
+        }
+        document.querySelectorAll(".custom_hero_product_image").forEach((img) => {
+            img.setAttribute("style", `max-width:${currentSize}rem;`)
+            img.setAttribute("data-image-size", `${currentSize}`)
+        })
+    }
+    function zoomOut() {
+        let currentSize = Number(document.querySelector(".custom_hero_product_image").getAttribute("data-image-size"));
+        let mql = window.matchMedia("(max-width: 650px)");
+        if (!document.querySelector(".custom_hero_product_image").getAttribute("data-image-size")) {
+            if (mql.matches) {
+                currentSize = {{ section.settings.image_width_2 }}
+            }
+            else if (!mql.matches) {
+                currentSize = {{ section.settings.image_width_1 }}
+            }
+        }
+      // Get the element by its ID or any other selector
+      var element = document.querySelector(".custom-hero-container-images-metaobject-products");
+    
+      // Get the height of the element
+      var elementHeight = element.clientHeight;
+    
+      // Calculate the height in viewport height (vh) units
+      var vhHeight = (elementHeight / window.innerHeight) * 100;
+      // you can change minimum size here
+        if (currentSize > 1 && vhHeight >= 100) {
+            currentSize -= 1; // you can change the zoom out with every zoom here
+        }
+        document.querySelectorAll(".custom_hero_product_image").forEach((img) => {
+            img.setAttribute("style", `max-width:${currentSize}rem;`)
+            img.setAttribute("data-image-size", `${currentSize}`)
+        })
+    }
+</script>
+
+{% schema %}
+{
+  "name": "Hero Metaobject Original",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Select Menu:"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color of Section:",
+      "default": "#fcfcfc"
+    },
+    {
+      "type": "range",
+      "id": "image_width_1",
+      "min": 1,
+      "max": 50,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Width of image (Desktop)",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "image_width_2",
+      "min": 1,
+      "max": 50,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Width of image (Mobile)",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Metaobject Original",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,156 @@
+.custom-hero-container {
+  position: fixed;
+  width: 80vw;
+  height: 85vh;
+  overflow-x: scroll;
+  overflow-y: visible;
+  overflow: overlay;
+  scrollbar-color: blue;
+  box-shadow: 0px 0px 5vw 5px inset;
+  left: 15vw;
+  top: 7.5vh;
+}
+
+
+.custom-hero-container-images {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+
+.custom-hero-container-images-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.custom-hero-menu-container {
+  position: fixed;
+  left: 4px;
+  top: 2%;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  padding: 6rem 6rem;
+  -webkit-filter: drop-shadow(5px 100px 100px #222222);
+  filter: drop-shadow(5px 100px 50px #222222);
+}
+
+img.custom-hero-menu-logo {
+  max-width: 100%;
+  width: 3rem;
+}
+
+.custom-hero-menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+a.custom-hero-menu-link {
+  text-decoration: none;
+  color: #000;
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-size: 1.5rem;
+}
+
+a.custom-hero-menu-link:hover {
+  text-decoration: none;
+  color: #cd0001;
+}
+
+.custom-hero-container-images-row {
+  display: inline-grid;
+  min-width: 100vw;
+  /* min-height: 100vh; */
+  /* grid-template-areas:
+    "   p156	   p131	   p85	   p103	   p57	   p132	   p102	   p113	   p141	   p72	   p112	   p90	   p91	   p153	   p89"
+    "   p86	       p81	   p56	   p92	   p114	   p21	   p65	   p151	   p28	   p165	   p38	   p154	   p51	   p80	   p118"
+    "   p53	       p11	   p47	   p49	   p15	   p27	   p3	   p84	   p139	   p66	   p137	   p104	   p79	   p110	   p88"
+    "   p7   	   p96	   p155	   p24	   p61	   p46	   p157	   p19	   p115	   p97	   p145	   p162	   p37	   p111	   p109"
+    "   p130	   p40	   p150	   p140	   p16	   p58	   p13	   p1	   p133	   p14	   p29	   p42	   p142	   p73	   p52"
+    "   p78	       p119	   p32	   p48	   p50	   p8	   p124	   p26	   p148	   p71	   p67	   p125	   p105	   p152	   p117"
+    "   p55	       p149	   p87	   p25	   p34	   p2	   p64	   p9	   p158	   p138	   p108	   p116	   p39	   p126	   p160"
+    "   p121	   p41	   p93	   p4	   p35	   p12	   p17	   p18	   p20	   p30	   p43	   p70	   p99	   p144	   p74"
+    "   p82	       p120	   p33	   p136	   p6	   p36	   p5	   p98	   p134	   p163	   p31	   p127	   p147	   p75	   p10"
+    "   p54	       p63	   p129	   p62	   p135	   p122	   p60	   p45	   p68	   p22	   p69	   p101	   p44	   p100	   p161"
+    "   p94	       p95	   p164	   p123	   p83	   p23	   p59	   p77	   p159	   p107	   p143	   p76	   p106	   p146	   p128";
+  */
+
+  grid-template-areas:
+    "p163	p160	p157	p149	p123	p111	p96	   p88	 p92	p100	p112	p146	p150	p158	p165"
+    "p156	p145	p141	p122	p87	    p79	    p60	   p52	 p56	p72	    p80	    p113	p138	p142	p151"
+    "p135	p121	p110	p86	    p67	    p51	    p43	   p27	 p36	p48	    p64	    p81	    p101	p114	p136"
+    "p131	p109	p78	    p71	    p47	    p31	    p22	   p11	 p23	p28	    p44	    p68	    p73	    p102	p132"
+    "p127	p95	    p59	    p42	    p35	    p18	    p6	   p2	 p7	    p19	    p32	    p37	    p61	    p97	    p128"
+    "p125	p91	    p55	    p26	    p14	    p10	    p5	   p1	 p3	    p12	    p15	    p24	    p53	    p89	    p124"
+    "p129	p99	    p63	    p41	    p34	    p17	    p9	   p4	 p8	    p16	    p33	    p38	    p57	    p93	    p126"
+    "p133	p108	p77	    p70	    p46	    p30	    p21	   p13	 p20	p29	    p45	    p69	    p74	    p103	p130"
+    "p137	p120	p107	p85	    p66	    p50	    p40	   p25	 p39	p49	    p65	    p82	    p104	p115	p134"
+    "p155	p144	p140	p119	p84	    p76	    p58	   p54	 p62	p75	    p83	    p116	p139	p143	p152"
+    "p162	p161	p154	p148	p118	p106	p94	   p90	 p98	p105	p117	p147	p153	p159	p164";
+  grid-gap: 0;
+}
+
+
+a.custom_hero_product_image-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+a[href] .custom_hero_product_image {
+  cursor: pointer;
+}
+
+.custom-hero-container-zoom {
+  position: sticky;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9;
+  width: 100%;
+  width: 100%;
+}
+
+.custom-hero-container-zoom-in,
+.custom-hero-container-zoom-out {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  cursor: pointer;
+}
+
+.custom-hero-container-zoom-img {
+  max-width: 3rem;
+}
+
+.custom-hero-container-images-metaobject-products {
+  display: inline-grid;
+  min-width: 100vw;
+  gap: 1rem;
+  z-index:-3;
+  position: absolute;
+  grid-template-areas:
+    "a120	a118    a117    a111    a110	a101	a99	    a88	    a87	    a76	    a75	    a74	    a73	    a69	    a66	    a67	    a68	    a70	    a71	    a72             b72 	b71	    b70	    b68	    b67	    b66	    b69	    b73	    b74	    b75	    b76	    b87	    b88	    b99	    b101    b110   	b111	b117	b118    b120"
+    "a119	a116    a112    a109    a100	a98	    a89	    a86	    a77	    a64	    a65	    a58	    a57	    a56	    a46	    a45	    a35	    a32	    a33	    a34             b34	    b33	    b32	    b35	    b45	    b46	    b56	    b57	    b58	    b65	    b64	    b77	    b86	    b89	    b98	    b100    b109	b112	b116    b119"
+    "a115	a113    a108    a102    a97	    a90	    a85	    a78	    a59	    a55	    a54	    a47	    a43	    a44	    a36	    a31	    a26	    a23	    a24	    a25             b25	    b24	    b23	    b26	    b31	    b36	    b44	    b43	    b47	    b54	    b55	    b59	    b78	    b85	    b90	    b97	    b102	b108	b113    b115"
+    "a114	a107    a103    a96     a91	    a84	    a79	    a60	    a53	    a48	    a42	    a37	    a30	    a27	    a22	    a19	    a18	    a12	    a11	    a10             b10 	b11	    b12	    b18	    b19	    b22	    b27	    b30	    b37	    b42	    b48	    b53	    b60	    b79	    b84	    b91	    b96	    b103	b107    b114"
+    "a106	a104    a95     a92     a83	    a80	    a61	    a52	    a50	    a41	    a38	    a28	    a21	    a17	    a15	    a13	    a9	    a8	    a5	    a4              b4	    b5	    b8	    b9	    b13	    b15	    b17	    b21	    b28	    b38	    b41	    b50	    b52	    b61	    b80	    b83	    b92	    b95	    b104    b106"
+    "a105	a94     a93     a82     a81	    a63 	a62	    a51	    a49	    a40	    a39	    a29	    a20	    a16	    a14	    a7	    a6	    a3	    a2	    a1              b1	    b2	    b3	    b6	    b7	    b14	    b16	    b20	    b29	    b39	    b40	    b49	    b51	    b62	    b63	    b81	    b82	    b93	    b94     b105"
+    "d105	d94     d93     d82     d81	    d63 	d62	    d51	    d49	    d40	    d39	    d29	    d20	    d16	    d14	    d7	    d6	    d3	    d2	    d1              c1	    c2	    c3	    c6	    c7	    c14	    c16	    c20	    c29	    c39	    c40	    c49	    c51	    c62	    c63	    c81	    c82	    c93	    c94     c105"
+    "d106	d104    d95     d92     d83	    d80	    d61	    d52	    d50	    d41	    d38	    d28	    d21	    d17	    d15	    d13	    d9	    d8	    d5	    d4              c4	    c5	    c8	    c9	    c13	    c15	    c17	    c21	    c28	    c38	    c41	    c50	    c52	    c61	    c80	    c83	    c92	    c95	    c104    c106"
+    "d114	d107    d103    d96     d91	    d84	    d79	    d60	    d53	    d48	    d42	    d37	    d30	    d27	    d22	    d19	    d18	    d12	    d11	    d10             c10 	c11	    c12	    c18	    c19	    c22	    c27	    c30	    c37	    c42	    c48	    c53	    c60	    c79	    c84	    c91	    c96	    c103	c107    c114"
+    "d115	d113    d108    d102    d97	    d90	    d85	    d78	    d59	    d55	    d54	    d47	    d43	    d44	    d36	    d31	    d26	    d23	    d24	    d25             c25	    c24	    c23	    c26	    c31	    c36	    c44	    c43	    c47	    c54	    c55	    c59	    c78	    c85	    c90	    c97	    c102	c108	c113    c115"
+    "d119	d116    d112    d109    d100	d98	    d89	    d86	    d77	    d64	    d65	    d58	    d57	    d56	    d46	    d45	    d35	    d32	    d33	    d34             c34	    c33	    c32	    c35	    c45	    c46	    c56	    c57	    c58	    c65	    c64	    c77	    c86	    c89	    c98	    c100    c109	c112	c116    c119"
+    "d120	d118    d117    d111    d110	d101	d99	    d88	    d87	    d76	    d75	    d74	    d73	    d69	    d66	    d67	    d68	    d70	    d71	    d72             c72 	c71	    c70	    c68	    c67	    c66	    c69	    c73	    c74	    c75	    c76	    c87	    c88	    c99	    c101    c110   	c111	c117	c118    c120";
+}

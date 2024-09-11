@@ -1,0 +1,115 @@
+
+<div class="gallery">
+{% for block in section.blocks %}
+    {% if block.type == 'image' %}
+      {% if block.settings.image != blank %}
+      <img class="gallery-image" src={{ block.settings.image | image_url: width: 1200 }}>
+      {% endif %}
+    {% endif %}
+{% endfor %}
+</div>
+
+
+{% for block in section.blocks %}
+  {% if block.type == 'title' %}
+     <p class="title">{{ block.settings.text }} </p>
+  {% elsif block.type == 'description' %}
+     <p class="description">{{ block.settings.description }} </p>
+{% endif %}
+{% endfor %}
+
+
+{% stylesheet %}
+
+.metaobject-entry-page {
+  position: fixed;
+  display: grid;
+  grid-template-rows: 6fr 1fr 1fr;
+  grid-template-areas: 
+    "gallery"
+    "title"
+    "description";
+  height: 100vh;
+  width: 100vw;
+}
+
+.gallery {
+  grid-area: gallery;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 0px;
+  width: 100%;
+  
+}
+
+.gallery-image{
+  height: auto;
+}
+
+.text {
+}
+
+.title{
+  grid-area: title;
+}
+  
+.description{
+  grid-area: description;
+}
+  
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+{% schema %}
+  {
+    "name": "Metaobject Entry Page",
+    "settings": [],
+    "presets": [
+      {"name": "Metaobject Entry Page"}
+    ],
+    "class": "metaobject-entry-page",
+    "limit": 1,
+    "blocks": [
+      {
+        "name": "Image",
+        "type": "image",
+        "settings" : [
+          {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image"
+         }
+        ]
+      },
+      {
+        "name": "Title",
+        "type": "title",
+        "settings" : [
+          {
+           "type": "richtext",
+           "id": "text",
+           "label": "title"
+         }
+          
+        ]
+      },
+      {
+        "name": "Description",
+        "type": "description",
+        "settings" : [
+          {
+           "type": "richtext",
+           "id": "description",
+           "label": "description"
+         }
+          
+        ]
+      } 
+    ]
+  }
+{% endschema %}

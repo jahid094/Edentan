@@ -1,0 +1,214 @@
+{{ 'custom-hero.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .custom_hero_product_image {
+    max-width: {{ section.settings.image_width_1 }}rem;
+  }
+  @media only screen and (max-width:650px){
+    .custom_hero_product_image {
+      max-width: {{ section.settings.image_width_2 }}rem;
+    }
+  }
+</style>
+
+<div class="custom-hero-container custom-hero-container-metaobject">
+  <div class="custom-hero-container-zoom">
+    <div onclick="zoomIn()" class="custom-hero-container-zoom-in">
+      <img
+        class="custom-hero-container-zoom-img"
+        width=""
+        height=""
+        src="https://cdn.shopify.com/s/files/1/0801/5963/7830/files/Group_117.svg?v=1711227170"
+      >
+    </div>
+    <div onclick="zoomOut()" class="custom-hero-container-zoom-out">
+      <img
+        class="custom-hero-container-zoom-img"
+        width=""
+        height=""
+        src="https://cdn.shopify.com/s/files/1/0801/5963/7830/files/Group_118.svg?v=1711227170"
+      >
+    </div>
+  </div>
+
+  <div class="custom-hero-container-images">
+    <div class="custom-hero-container-images-metaobject-products">
+      {% assign positionNumber = 0 %}
+      {% assign a_count = 0 %}
+      {% assign b_count = 0 %}
+      {% assign c_count = 0 %}
+      {% assign d_count = 0 %}
+
+      <!-- PLEASE CHANGE THE NAME HERE -->
+
+      {% for value in shop.metaobjects.hero.values %}
+        {% if value.main_position == 'a' %}
+          {% assign a_count = a_count | plus: 1 %}
+          {% assign positionNumber = a_count %}
+        {% endif %}
+
+        {% if value.main_position == 'b' %}
+          {% assign b_count = b_count | plus: 1 %}
+          {% assign positionNumber = b_count %}
+        {% endif %}
+
+        {% if value.main_position == 'c' %}
+          {% assign c_count = c_count | plus: 1 %}
+          {% assign positionNumber = c_count %}
+        {% endif %}
+
+        {% if value.main_position == 'd' %}
+          {% assign d_count = d_count | plus: 1 %}
+          {% assign positionNumber = d_count %}
+        {% endif %}
+
+        <a
+          {% if value.link != blank %}
+            target="_blank"            
+            href="{{ value.link }}"
+          {% endif %}
+          class="custom_hero_product_image-link"
+          style="grid-area:{{ value.main_position }}{{ positionNumber }}"
+        >
+          <img
+            width=""
+            height=""
+            class="custom_hero_product_image"
+            src="{{ value.featured_image | img_url: 'large' }}"
+          >
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="custom-hero-menu-container">
+    <a href="/"
+      ><img width="" height="" src="{{ shop.brand.logo | img_url: 'large' }}" class="custom-hero-menu-logo"
+    ></a>
+    <div class="custom-hero-menu-links">
+      {%- for link in section.settings.menu.links -%}
+        <a class="custom-hero-menu-link" href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+    window.onload = () => {
+        let frame = document.querySelector(".custom-hero-container-metaobject")
+        let container = document.querySelector(".custom-hero-container-images-metaobject-products")
+        let frameWidth = frame.clientWidth
+        let containerWidth = container.clientWidth
+        let frameHeight = frame.clientHeight
+        let containerHeight = container.clientHeight
+        frame.scrollLeft = (containerWidth - frameWidth) / 2;
+        frame.scrollTop = (containerHeight - frameHeight) / 2;
+    };
+    function zoomIn() {
+        let currentSize = Number(document.querySelector(".custom_hero_product_image").getAttribute("data-image-size"));
+        let mql = window.matchMedia("(max-width: 650px)");
+        if (!document.querySelector(".custom_hero_product_image").getAttribute("data-image-size")) {
+            if (mql.matches) {
+                currentSize = {{ section.settings.image_width_2 }}
+            }
+            else if (!mql.matches) {
+                currentSize = {{ section.settings.image_width_1 }}
+            }
+        }
+      
+        // you can change maximum size here
+        if (currentSize < 90) {
+            currentSize += 4; // you can change the zoom in with every zoom here
+        }
+        document.querySelectorAll(".custom_hero_product_image").forEach((img) => {
+            img.setAttribute("style", `max-width:${currentSize}rem;`)
+            img.setAttribute("data-image-size", `${currentSize}`)
+        })
+    }
+    function zoomOut() {
+        let currentSize = Number(document.querySelector(".custom_hero_product_image").getAttribute("data-image-size"));
+        let mql = window.matchMedia("(max-width: 650px)");
+        if (!document.querySelector(".custom_hero_product_image").getAttribute("data-image-size")) {
+            if (mql.matches) {
+                currentSize = {{ section.settings.image_width_2 }}
+            }
+            else if (!mql.matches) {
+                currentSize = {{ section.settings.image_width_1 }}
+            }
+        }
+      // Get the element by its ID or any other selector
+      var element = document.querySelector(".custom-hero-container-images-metaobject-products");
+    
+      // Get the height of the element
+      var elementHeight = element.clientHeight;
+    
+      // Calculate the height in viewport height (vh) units
+      var vhHeight = (elementHeight / window.innerHeight) * 100;
+      // you can change minimum size here
+        if (currentSize > 1 && vhHeight >= 100) {
+            currentSize -= 1; // you can change the zoom out with every zoom here
+        }
+        document.querySelectorAll(".custom_hero_product_image").forEach((img) => {
+            img.setAttribute("style", `max-width:${currentSize}rem;`)
+            img.setAttribute("data-image-size", `${currentSize}`)
+        })
+    }
+</script>
+
+<script>
+  // Parse the metaobject entries as JSON
+  var entries = {{ shop.metaobjects.hero.values | json }};
+
+  // Sort the entries by date
+  entries.sort(function(a, b) {
+    return new Date(b.date) - new Date(a.date);
+  });
+
+  console.log(entries)
+</script>
+
+{% schema %}
+{
+  "name": "Custom Hero for Home",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Select Menu:"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color of Section:",
+      "default": "#fcfcfc"
+    },
+    {
+      "type": "range",
+      "id": "image_width_1",
+      "min": 1,
+      "max": 50,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Width of image (Desktop)",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "image_width_2",
+      "min": 1,
+      "max": 50,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Width of image (Mobile)",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Hero for Home",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

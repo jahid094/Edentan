@@ -1,0 +1,82 @@
+    <nav class="main-nav">
+      <ul class="nav-list">
+   
+           {%- if section.settings.logo_position != 'middle-center' -%}
+              {%- if request.page_type == 'index' -%}
+                <h1 class="header__heading">
+              {%- endif -%}
+                  <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+                    {%- if settings.logo != blank -%}
+                      <div class="header__heading-logo-wrapper">
+                        {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+                        {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+                        {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
+                        {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+                        {{ settings.logo | image_url: width: 600 | image_tag:
+                          class: 'header__heading-logo motion-reduce',
+                          widths: widths,
+                          height: logo_height,
+                          width: settings.logo_width,
+                          alt: logo_alt,
+                          sizes: sizes,
+                          preload: true
+                        }}
+                      </div>
+                    {%- else -%}
+                      <span class="h2">{{ shop.name }}</span>
+                    {%- endif -%}
+                  </a>
+              {%- if request.page_type == 'index' -%}
+                </h1>
+              {%- endif -%}
+            {%- endif -%}
+        
+        
+                <li class="nav-list-option"><a href="index.html">Home</a></li>
+                <li class="nav-list-option"><a href="shop.html">Shop</a></li>
+                <li class="nav-list-option"><a href="/media.html">Media</a></li>
+                <li class="nav-list-option"><a href="contact.html">Contact</a></li>
+        
+      </ul>
+    </nav>
+
+    <style>
+      
+.main-nav {
+    position: fixed;
+    /* left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%); */
+    background-image: url("public/images/Paper-Logo.png");
+    background-size: 100% 100%;
+    padding: 10px 35px 40px 20px ;
+    z-index: 1;
+}
+
+.nav-list {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    margin: auto;
+    padding: 0;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+    margin: 0;
+    text-align: center;
+    text-shadow: 0px 3px 3px grey;
+}</style>
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
