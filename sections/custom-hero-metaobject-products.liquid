@@ -11,84 +11,134 @@
   }
 </style>
 
-<div class="custom-hero-container custom-hero-container-metaobject">
-  <div class="custom-hero-container-zoom">
-    <div onclick="zoomIn()" class="custom-hero-container-zoom-in">
-      <img
-        class="custom-hero-container-zoom-img"
-        width=""
-        height=""
-        src="https://cdn.shopify.com/s/files/1/0801/5963/7830/files/Group_117.svg?v=1711227170"
-      >
-    </div>
-    <div onclick="zoomOut()" class="custom-hero-container-zoom-out">
-      <img
-        class="custom-hero-container-zoom-img"
-        width=""
-        height=""
-        src="https://cdn.shopify.com/s/files/1/0801/5963/7830/files/Group_118.svg?v=1711227170"
-      >
-    </div>
-  </div>
-
-  <div class="custom-hero-container-images">
-    <div class="custom-hero-container-images-metaobject-products">
-      {% assign positionNumber = 0 %}
-      {% assign a_count = 0 %}
-      {% assign b_count = 0 %}
-      {% assign c_count = 0 %}
-      {% assign d_count = 0 %}
-
-      <!-- PLEASE CHANGE THE NAME HERE -->
-
-      {% for value in shop.metaobjects.hero.values %}
-        {% if value.main_position == 'a' %}
-          {% assign a_count = a_count | plus: 1 %}
-          {% assign positionNumber = a_count %}
-        {% endif %}
-
-        {% if value.main_position == 'b' %}
-          {% assign b_count = b_count | plus: 1 %}
-          {% assign positionNumber = b_count %}
-        {% endif %}
-
-        {% if value.main_position == 'c' %}
-          {% assign c_count = c_count | plus: 1 %}
-          {% assign positionNumber = c_count %}
-        {% endif %}
-
-        {% if value.main_position == 'd' %}
-          {% assign d_count = d_count | plus: 1 %}
-          {% assign positionNumber = d_count %}
-        {% endif %}
-
-        <a
-          {% if value.link != blank %}
-            target="_blank"            
-            href="{{ value.link }}"
-          {% endif %}
-          class="custom_hero_product_image-link"
-          style="grid-area:{{ value.main_position }}{{ positionNumber }}"
-        >
-          <img
-            width=""
-            height=""
-            class="custom_hero_product_image"
-            src="{{ value.featured_image | img_url: 'large' }}"
-          >
-        </a>
-      {% endfor %}
-    </div>
-  </div>
-
+<div class="overall-container">
   <div class="custom-hero-menu-container">
-    <a href="/"
-      ><img width="" height="" src="{{ shop.brand.logo | img_url: 'large' }}" class="custom-hero-menu-logo"
-    ></a>
-    <div class="custom-hero-menu-links">
-      {%- for link in section.settings.menu.links -%}
-        <a class="custom-hero-menu-link" href="{{ link.url }}">{{ link.title }}</a>
-      {% endfor %}
+    <div class="logo-wrapper">
+      <a href="/"
+        ><img width="" height="" src="{{ shop.brand.logo | img_url: 'large' }}" class="custom-hero-menu-logo"
+      ></a>
+    </div>
+
+    <div class="bottom-container">
+      <div class="filters-header">FILTER</div>
+      <div class="custom-hero-menu-links">
+        <ul class="custom-hero-header-ul">
+          {%- for link in section.settings.menu.links -%}
+            <li>
+              <a class="custom-hero-menu-link" href="{{ link.url }}">{{ link.title }}</a>
+              {% if link.links %}
+                <ul class="custom-hero-submenu-ul">
+                  {%- for child in link.links -%}
+                    <li>
+                      <a class="custom-hero-submenu-link" href="{{ child.url }}">{{ child.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="zoom-explore-header">EXPLORE</div>
+      <div class="custom-zoom-wrapper">
+        <div class="zoom-trackpad-container">
+          <div class="zoom-trackpad-row">
+            <div class="zoom-trackpad-cell empty"></div>
+            <div class="zoom-trackpad-cell">1</div>
+            <div class="zoom-trackpad-cell empty"></div>
+          </div>
+          <div class="zoom-trackpad-row">
+            <div class="zoom-trackpad-cell">2</div>
+            <div class="zoom-trackpad-cell middle"></div>
+            <div class="zoom-trackpad-cell">4</div>
+          </div>
+          <div class="zoom-trackpad-row">
+            <div class="zoom-trackpad-cell empty"></div>
+            <div class="zoom-trackpad-cell">5</div>
+            <div class="zoom-trackpad-cell empty"></div>
+          </div>
+        </div>
+
+        <div class="custom-hero-container-zoom">
+          <div class="custom-hero-container-zoom-in">
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M10 7v6m-3-3h6m4 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+            </svg>
+          </div>
+          <div class="custom-hero-container-zoom-out">
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M7 10h6m4 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="custom-hero-container custom-hero-container-metaobject">
+    <div class="custom-hero-container-images">
+      <div class="custom-hero-container-images-metaobject-products">
+        {% assign positionNumber = 0 %}
+        {% assign a_count = 0 %}
+        {% assign b_count = 0 %}
+        {% assign c_count = 0 %}
+        {% assign d_count = 0 %}
+
+        <!-- PLEASE CHANGE THE NAME HERE -->
+
+        {% for value in shop.metaobjects.hero.values %}
+          {% if value.main_position == 'a' %}
+            {% assign a_count = a_count | plus: 1 %}
+            {% assign positionNumber = a_count %}
+          {% endif %}
+
+          {% if value.main_position == 'b' %}
+            {% assign b_count = b_count | plus: 1 %}
+            {% assign positionNumber = b_count %}
+          {% endif %}
+
+          {% if value.main_position == 'c' %}
+            {% assign c_count = c_count | plus: 1 %}
+            {% assign positionNumber = c_count %}
+          {% endif %}
+
+          {% if value.main_position == 'd' %}
+            {% assign d_count = d_count | plus: 1 %}
+            {% assign positionNumber = d_count %}
+          {% endif %}
+
+          <a
+            {% if value.link != blank %}
+              target="_blank"
+              href="{{ value.link }}"
+            {% endif %}
+            class="custom_hero_product_image-link"
+            style="grid-area:{{ value.main_position }}{{ positionNumber }}"
+          >
+            <img
+              width=""
+              height=""
+              class="custom_hero_product_image"
+              src="{{ value.featured_image | img_url: 'large' }}"
+            >
+          </a>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
@@ -104,9 +154,14 @@
         frame.scrollLeft = (containerWidth - frameWidth) / 2;
         frame.scrollTop = (containerHeight - frameHeight) / 2;
     };
-    function zoomIn() {
+
+    let zoomInButton = document.querySelector(".custom-hero-container-zoom-in");
+    zoomInButton.addEventListener("click", (e) => {
         let currentSize = Number(document.querySelector(".custom_hero_product_image").getAttribute("data-image-size"));
+        console.log(currentSize, "currentSize");
         let mql = window.matchMedia("(max-width: 650px)");
+        console.log(mql, "mql");
+
         if (!document.querySelector(".custom_hero_product_image").getAttribute("data-image-size")) {
             if (mql.matches) {
                 currentSize = {{ section.settings.image_width_2 }}
@@ -118,14 +173,16 @@
       
         // you can change maximum size here
         if (currentSize < 90) {
-            currentSize += 4; // you can change the zoom in with every zoom here
+            currentSize += 2; // you can change the zoom in with every zoom here
         }
         document.querySelectorAll(".custom_hero_product_image").forEach((img) => {
             img.setAttribute("style", `max-width:${currentSize}rem;`)
             img.setAttribute("data-image-size", `${currentSize}`)
         })
-    }
-    function zoomOut() {
+    });
+
+    let zoomOutButton = document.querySelector(".custom-hero-container-zoom-out");
+    zoomOutButton.addEventListener("click", (e) => {
         let currentSize = Number(document.querySelector(".custom_hero_product_image").getAttribute("data-image-size"));
         let mql = window.matchMedia("(max-width: 650px)");
         if (!document.querySelector(".custom_hero_product_image").getAttribute("data-image-size")) {
@@ -146,13 +203,13 @@
       var vhHeight = (elementHeight / window.innerHeight) * 100;
       // you can change minimum size here
         if (currentSize > 1 && vhHeight >= 100) {
-            currentSize -= 1; // you can change the zoom out with every zoom here
+            currentSize -= 2; // you can change the zoom out with every zoom here
         }
         document.querySelectorAll(".custom_hero_product_image").forEach((img) => {
             img.setAttribute("style", `max-width:${currentSize}rem;`)
             img.setAttribute("data-image-size", `${currentSize}`)
         })
-    }
+    });
 </script>
 
 <script>
