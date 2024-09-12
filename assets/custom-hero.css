@@ -7,6 +7,22 @@
   left: 15vw;
   top: 6.5vh;
 }
+
+/* For hiding the scrollbar in WebKit browsers (Chrome, Safari) */
+.custom-hero-container {
+  overflow: -moz-scrollbars-none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* For hiding the scrollbar in WebKit browsers (Chrome, Safari) */
+.custom-hero-container::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
 @media screen and (max-width: 1600px) {
   .custom-hero-container {
     left: 17vw;
