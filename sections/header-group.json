@@ -4,10 +4,9 @@
   "sections": {
     "header": {
       "type": "header",
-      "disabled": true,
       "settings": {
         "logo_position": "top-center",
-        "menu": "main-menu",
+        "menu": "header-menu",
         "menu_type_desktop": "mega",
         "sticky_header_type": "none",
         "show_line_separator": false,
