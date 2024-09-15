@@ -22,8 +22,8 @@
     <div class="bottom-container">
       <div class="filters-header">FILTER</div>
       <div class="custom-hero-menu-links">
-        <ul class="custom-hero-header-ul">
-          {%- for link in section.settings.menu.links -%}
+        <ul class="custom-hero-filter-ul">
+          {%- for link in section.settings.filter.links -%}
             <li>
               <a class="custom-hero-menu-link" href="{{ link.url }}">{{ link.title }}</a>
               {% if link.links %}
@@ -106,6 +106,15 @@
       </div>
     </div>
   </div>
+  {% comment %} <div class="custom-header-container">
+    <ul class="custom-hero-header-ul">
+      {%- for link in section.settings.menu.links -%}
+        <li>
+          <a class="custom-hero-menu-link" href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div> {% endcomment %}
   <div class="custom-hero-container custom-hero-container-metaobject">
     <div class="custom-hero-container-images">
       <div class="custom-hero-container-images-metaobject-products">
@@ -270,6 +279,12 @@
 {
   "name": "Custom Hero for Home",
   "settings": [
+    {
+      "type": "link_list",
+      "id": "filter",
+      "default": "main-menu",
+      "label": "Select Filter:"
+    },
     {
       "type": "link_list",
       "id": "menu",

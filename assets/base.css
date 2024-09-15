@@ -122,11 +122,11 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     padding: 0 5rem;
   }
 
-  .header.page-width,
+  /* .header.page-width,
   .utility-bar__grid.page-width {
     padding-left: 3.2rem;
     padding-right: 3.2rem;
-  }
+  } */
 
   .page-width--narrow {
     padding: 0 9rem;
@@ -142,10 +142,10 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 
 @media screen and (min-width: 990px) {
-  .header:not(.drawer-menu).page-width {
+  /* .header:not(.drawer-menu).page-width {
     padding-left: 5rem;
     padding-right: 5rem;
-  }
+  } */
 
   .page-width--narrow {
     max-width: 72.6rem;
@@ -2369,7 +2369,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 /* Main Header Layout */
 .header-wrapper {
   display: block;
-  position: fixed;
+  /* position: fixed; */
   background-color: rgb(var(--color-background));
 }
 
@@ -2379,7 +2379,6 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .header {
   display: flex;
-  flex-direction: column;
   /* grid-template-areas: 'left-icons heading icons';
   grid-template-columns: 1fr 2fr 1fr; */
   align-items: center;
@@ -2535,13 +2534,42 @@ product-info .loading__spinner:not(.hidden) ~ *,
   display: flex;
   grid-area: icons;
   justify-self: end;
-  padding-right: 0.8rem;
+  padding-right: 5rem;
 }
 
 .header__icons .shopify-app-block {
   max-width: 4.4rem;
   max-height: 4.4rem;
   overflow: hidden;
+}
+
+.cart_name {
+  padding: 1.2rem;
+  color: rgba(var(--color-foreground), .75);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 12.23px;
+  letter-spacing: .12em;
+  text-align: left;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.cart_name:hover {
+  color: black;
+}
+
+.number_of_quantity_in_cart_wrapper {
+  padding: 1rem;
+  color: rgba(var(--color-foreground), .75);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 12.23px;
+  width: 33px;
+  height: 33px;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 50%;
 }
 
 .header__icon:not(.header__icon--summary),
@@ -2575,16 +2603,17 @@ product-info .loading__spinner:not(.hidden) ~ *,
   vertical-align: middle;
 }
 
-.header__icon,
+/* .header__icon,
 .header__icon--cart .icon {
   height: 4.4rem;
   width: 4.4rem;
   padding: 0;
-}
+} */
 
 .header__icon--cart {
   position: relative;
   margin-right: -1.2rem;
+  text-decoration: none;
 }
 
 .header__icon--menu[aria-expanded='true']::before {
@@ -2621,8 +2650,10 @@ menu-drawer + .header__search {
 }
 
 .header__search {
-  display: inline-flex;
+  display: flex;
   line-height: 0;
+  min-width: 150px;
+  align-items: center;
 }
 
 .header--top-center > .header__search {
@@ -2633,7 +2664,7 @@ menu-drawer + .header__search {
   display: inline-flex;
 }
 
-@media screen and (min-width: 990px) {
+/* @media screen and (min-width: 990px) {
   .header:not(.header--top-center) * > .header__search,
   .header--top-center > .header__search {
     display: inline-flex;
@@ -2643,7 +2674,7 @@ menu-drawer + .header__search {
   .header--top-center * > .header__search {
     display: none;
   }
-}
+} */
 
 .no-js .predictive-search {
   display: none;
@@ -2666,6 +2697,28 @@ details[open] .modal-overlay::after {
   left: 0;
   right: 0;
   height: 100vh;
+}
+
+.header__icon--search {
+  display: flex !important;
+  gap: 8px !important;
+  text-decoration: none;
+  align-items: center;
+}
+.search_label:hover {
+  color: black;
+}
+
+.search_label {
+  padding: 1.2rem;
+  color: rgba(var(--color-foreground), .75);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 12.23px;
+  letter-spacing: .12em;
+  text-align: left;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .no-js details[open] > .header__icon--search {
@@ -2777,7 +2830,7 @@ details[open] > .header__submenu {
 .header__inline-menu {
   margin-left: -1.2rem;
   grid-area: navigation;
-  display: none;
+  /* display: none; */
 }
 
 .header--top-center .header__inline-menu,
@@ -2806,11 +2859,17 @@ details[open] > .header__submenu {
 .header__menu {
   padding: 0 1rem;
 }
-
 .header__menu-item {
   padding: 1.2rem;
   text-decoration: none;
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-foreground), .75);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 12.23px;
+  letter-spacing: 0.12em;
+  text-align: left;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .header__menu-item:hover {
@@ -2819,6 +2878,7 @@ details[open] > .header__submenu {
 
 .header__menu-item span {
   transition: text-decoration var(--duration-short) ease;
+  text-decoration: none;
 }
 
 .header__menu-item:hover span {

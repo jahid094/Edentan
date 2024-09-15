@@ -9,6 +9,21 @@
   left: 15vw;
   top: 6.5vh;
 }
+.custom-header-container {
+  position: fixed;
+  width: 83vw;
+  height: 8vh;
+  left: 15vw;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+}
+.header-right-content-custom {
+  display: flex;
+  align-items: center;
+}
 
 /* For hiding the scrollbar in WebKit browsers (Chrome, Safari) */
 .custom-hero-container {
@@ -30,6 +45,9 @@
   .custom-hero-container {
     left: 17vw;
   }
+  .custom-header-container {
+    left: 17vw;
+  }
 }
 
 @media screen and (max-width: 1300px) {
@@ -37,10 +55,18 @@
     left: 22vw;
     width: 75vw;
   }
+    .custom-header-container {
+      left: 22vw;
+      width: 75vw;
+    }
 }
 
 @media screen and (max-width: 1024px) {
   .custom-hero-container {
+    left: 29vw;
+    width: 70vw;
+  }
+  .custom-header-container {
     left: 29vw;
     width: 70vw;
   }
@@ -135,13 +161,23 @@ img.custom-hero-menu-logo {
   padding: 1rem 0;
 }
 
-.custom-hero-header-ul {
+.custom-hero-filter-ul {
   margin: 0;
   padding: 0;
   padding-left: 30px;
   list-style-type: "[  ] ";
   font-weight: 600;
   font-size: 2rem;
+}
+.custom-hero-header-ul {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-size: 2rem;
+  display: flex;
+  list-style-type: none;
+  gap: 60px;
+  justify-content: flex-start;
 }
 
 .custom-hero-submenu-ul {
@@ -163,7 +199,8 @@ a.custom-hero-menu-link {
 
 a.custom-hero-menu-link:hover {
   text-decoration: none;
-  color: #cd0001;
+  text-decoration: underline;
+  text-underline-offset: .3rem;
 }
 
 a.custom-hero-submenu-link {
@@ -176,7 +213,8 @@ a.custom-hero-submenu-link {
 
 a.custom-hero-submenu-link:hover {
   text-decoration: none;
-  color: #cd0001;
+  text-decoration: underline;
+  text-underline-offset: .3rem;
 }
 
 
