@@ -49,6 +49,12 @@
   gap: 50px;
 }
 
+@media screen and (max-width: 1120px) {
+  .list-menu--inline {
+    gap: 0px;
+  }
+}
+
   summary.list-menu__item {
     padding-right: 2.7rem;
   }
@@ -244,14 +250,14 @@
         <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
           <p class="cart_name">Cart</p> <p class="number_of_quantity_in_cart_wrapper">{{ cart.item_count }}</p>
           <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-          {%- if cart != empty -%}
+          {% comment %} {%- if cart != empty -%}
             <div class="cart-count-bubble">
               {%- if cart.item_count < 100 -%}
                 <span aria-hidden="true">{{ cart.item_count }}</span>
               {%- endif -%}
               <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
             </div>
-          {%- endif -%}
+          {%- endif -%} {% endcomment %}
         </a>
       </div>
     </div>

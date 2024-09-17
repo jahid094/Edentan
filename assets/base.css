@@ -2076,15 +2076,18 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .modal__content {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  max-width: 100%;
+  top: 12.5vh;
+  left: 12vw;
+  right: 12vw;
   bottom: 0;
   background: rgb(var(--color-background));
   z-index: 4;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50px;
+  box-shadow: 0px 0px 18.9px 0px #00000040;
 }
 
 .media-modal {
@@ -2436,10 +2439,6 @@ product-info .loading__spinner:not(.hidden) ~ *,
     grid-template-areas: 'left-icons heading icons';
     grid-template-columns: 1fr auto 1fr;
   }
-
-  .header:not(.header--middle-left, .header--middle-center) .header__inline-menu {
-    margin-top: 1.05rem;
-  }
 }
 
 .header *[tabindex='-1']:focus {
@@ -2692,7 +2691,7 @@ details[open] .modal-overlay {
 details[open] .modal-overlay::after {
   position: absolute;
   content: '';
-  background-color: rgb(var(--color-foreground), 0.5);
+  /* background-color: rgb(var(--color-foreground), 0.5); */
   top: 100%;
   left: 0;
   right: 0;

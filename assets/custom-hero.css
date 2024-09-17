@@ -7,7 +7,7 @@
   overflow: overlay;
   /* box-shadow: 0 0 5vw 5px inset; */
   left: 15vw;
-  top: 6.5vh;
+  top: 8.5vh;
 }
 .custom-header-container {
   position: fixed;
@@ -25,22 +25,47 @@
   align-items: center;
 }
 
-/* For hiding the scrollbar in WebKit browsers (Chrome, Safari) */
-.custom-hero-container {
-  overflow: -moz-scrollbars-none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* Internet Explorer and Edge */
-  scrollbar-width: none;
-  /* Firefox */
+/* custom scrollbar */
+
+
+/* ::-webkit-scrollbar {
+  width: 20px;
 }
 
-/* For hiding the scrollbar in WebKit browsers (Chrome, Safari) */
-.custom-hero-container::-webkit-scrollbar {
-  display: none;
-  /* Safari and Chrome */
+::-webkit-scrollbar-track {
+  background: #ffffff;
 }
 
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+  border: 5px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */
+
+
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a5a5a5;
+  border-radius: 20px;
+  border: 5px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #7e7e7e; 
+}
 @media screen and (max-width: 1600px) {
   .custom-hero-container {
     left: 17vw;
