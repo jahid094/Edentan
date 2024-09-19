@@ -187,7 +187,7 @@
 }
 
 .zoom-explore-header {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 11.89px;
   letter-spacing: 0.12em;
@@ -199,7 +199,7 @@
 }
 
 .filters-header {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 11.89px;
   letter-spacing: 0.12em;
@@ -230,13 +230,13 @@ img.custom-hero-menu-logo {
   padding-left: 30px;
   list-style-type: "[  ] ";
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .custom-hero-header-ul {
   margin: 0;
   padding: 0;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.5rem;
   display: flex;
   list-style-type: none;
   gap: 60px;
@@ -249,14 +249,14 @@ img.custom-hero-menu-logo {
   padding-left: 30px;
   list-style-type: "[  ] ";
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 a.custom-hero-menu-link {
   text-decoration: none;
   color: #000;
   font-weight: var(--font-heading-weight);
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
 }
 
@@ -270,7 +270,7 @@ a.custom-hero-submenu-link {
   text-decoration: none;
   color: #000;
   font-weight: var(--font-heading-weight);
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
 }
 
