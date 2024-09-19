@@ -1,5 +1,9 @@
 {{ 'custom-hero.css' | asset_url | stylesheet_tag }}
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+{% comment %} <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>  {% endcomment %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <style>
   .custom_hero_product_image {
     max-width: {{ section.settings.image_width_1 }}rem;
@@ -9,6 +13,58 @@
       max-width: {{ section.settings.image_width_2 }}rem;
     }
   }
+    .swiper-slide {
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition-property: transform;
+        display: flex;
+        justify-content: center;
+    }
+    swiper-container {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+      content: '' !important;
+    }
+
+    .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+      content: '' !important;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #000;
+    }
+
+    .swiper-button-prev {
+      background-image: url("data:image/svg+xml,%3Csvg%20class%3D%22w-6%20h-6%20text-gray-800%20dark%3Atext-white%22%20aria-hidden%3D%22true%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M5%2012h14M5%2012l4-4m-4%204%204%204%22/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+    }
+    
+    .swiper-button-next {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20class%3D%22w-6%20h-6%20text-gray-800%20dark%3Atext-white%22%20aria-hidden%3D%22true%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%2012H5m14%200-4%204m4-4-4-4%22%2F%3E%3C%2Fsvg%3E") !important;
+      background-repeat: no-repeat;
+    }
 </style>
 
 <div class="overall-container">
@@ -45,7 +101,15 @@
           <div class="zoom-trackpad-row">
             <div class="zoom-trackpad-cell empty"></div>
             <div class="zoom-trackpad-cell scroll-top-button">
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v13m0-13 4 4m-4-4-4 4"/>
               </svg>
             </div>
@@ -53,13 +117,29 @@
           </div>
           <div class="zoom-trackpad-row">
             <div class="zoom-trackpad-cell scroll-left-button">
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
               </svg>
             </div>
             <div class="zoom-trackpad-cell middle"></div>
             <div class="zoom-trackpad-cell scroll-right-button">
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
               </svg>
             </div>
@@ -67,7 +147,15 @@
           <div class="zoom-trackpad-row">
             <div class="zoom-trackpad-cell empty"></div>
             <div class="zoom-trackpad-cell scroll-bottom-button">
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19V5m0 14-4-4m4 4 4-4"/>
               </svg>
             </div>
@@ -106,15 +194,17 @@
       </div>
     </div>
   </div>
-  {% comment %} <div class="custom-header-container">
-    <ul class="custom-hero-header-ul">
-      {%- for link in section.settings.menu.links -%}
-        <li>
-          <a class="custom-hero-menu-link" href="{{ link.url }}">{{ link.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div> {% endcomment %}
+  {% comment %}
+    <div class="custom-header-container">
+      <ul class="custom-hero-header-ul">
+        {%- for link in section.settings.menu.links -%}
+          <li>
+            <a class="custom-hero-menu-link" href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endcomment %}
   <div class="custom-hero-container custom-hero-container-metaobject">
     <div class="custom-hero-container-images">
       <div class="custom-hero-container-images-metaobject-products">
@@ -147,13 +237,42 @@
             {% assign positionNumber = d_count %}
           {% endif %}
 
+          {%- assign is_gallery_exists = false -%}
+          {% if value.gallery_1
+            or value.gallery_2
+            or value.gallery_3
+            or value.gallery_4
+            or value.gallery_5
+            or value.gallery_6
+          %}
+            {%- assign is_gallery_exists = true -%}
+          {% endif %}
+
           <a
             {% if value.link != blank %}
               target="_blank"
               href="{{ value.link }}"
             {% endif %}
-            class="custom_hero_product_image-link"
+            class="custom_hero_product_image-link {% if is_gallery_exists == true %}custom_hero_gallery{% endif %}"
             style="grid-area:{{ value.main_position }}{{ positionNumber }}"
+            {%- if value.gallery_1 -%}
+              data-gallery_1="{{ value.gallery_1.value | image_url }}"
+            {%- endif -%}
+            {%- if value.gallery_2 -%}
+              data-gallery_2="{{ value.gallery_2.value | image_url }}"
+            {%- endif -%}
+            {%- if value.gallery_3 -%}
+              data-gallery_3="{{ value.gallery_3.value | image_url }}"
+            {%- endif -%}
+            {%- if value.gallery_4 -%}
+              data-gallery_4="{{ value.gallery_4.value | image_url }}"
+            {%- endif -%}
+            {%- if value.gallery_5 -%}
+              data-gallery_5="{{ value.gallery_5.value | image_url }}"
+            {%- endif -%}
+            {%- if value.gallery_6 -%}
+              data-gallery_6="{{ value.gallery_6.value | image_url }}"
+            {%- endif -%}
           >
             <img
               width=""
@@ -165,6 +284,23 @@
         {% endfor %}
       </div>
     </div>
+    <div class="custom-hero-container-gallery-details" style="display: none;">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          {% comment %} <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 4</div>
+          <div class="swiper-slide">Slide 5</div>
+          <div class="swiper-slide">Slide 6</div>
+          <div class="swiper-slide">Slide 7</div>
+          <div class="swiper-slide">Slide 8</div>
+          <div class="swiper-slide">Slide 9</div> {% endcomment %}
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
   </div>
 </div>
 
@@ -261,6 +397,59 @@
         let frame = document.querySelector(".custom-hero-container-metaobject");
         frame.scrollTop += 100; // You can adjust the scroll distance here
     });
+</script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const linksWithoutHrefAndWithCustomGalleryClass = document.querySelectorAll('a:not([href]).custom_hero_gallery');
+    const heroContatinerImagesWrapper = document.querySelector('.custom-hero-container-images');
+    const heroContatinerGalleryWrapper = document.querySelector('.custom-hero-container-gallery-details');
+
+    linksWithoutHrefAndWithCustomGalleryClass.forEach((link) => {
+      // Add a click event listener to each link
+      link.addEventListener('click', function () {
+        console.log(link.dataset, 'data set');
+        heroContatinerImagesWrapper.style.display = 'none';
+        heroContatinerGalleryWrapper.style.display = 'flex';
+        let sliderWrapper = document.querySelector('.swiper-wrapper');
+        sliderWrapper.innerHTML = "";
+
+        for (const key in link.dataset) {
+          if (link.dataset.hasOwnProperty(key)) {
+            // Create a new div for the swiper-slide
+            let swiperSlide = document.createElement('div');
+            swiperSlide.classList.add('swiper-slide');
+
+            // Create the img element and set its src attribute
+            let img = document.createElement('img');
+            img.src = link.dataset[key];
+
+            // Append the image to the swiper-slide div
+            swiperSlide.appendChild(img);
+
+            // Append the swiper-slide to the swiper-wrapper
+            sliderWrapper.appendChild(swiperSlide);
+          }
+        }
+      });
+    });
+
+  });
 </script>
 
 <script>
