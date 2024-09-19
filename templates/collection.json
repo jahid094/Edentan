@@ -30,9 +30,10 @@
         "padding_bottom": 36
       }
     },
-    "original_custom_hero_metaobject_FJbW8Y": {
-      "type": "original-custom-hero-metaobject",
+    "custom_hero_metaobject_products_jLJYYh": {
+      "type": "custom-hero-metaobject-products",
       "settings": {
+        "filter": "main-menu",
         "menu": "main-menu",
         "background_color": "#fcfcfc",
         "image_width_1": 10,
@@ -43,6 +44,6 @@
   "order": [
     "banner",
     "product-grid",
-    "original_custom_hero_metaobject_FJbW8Y"
+    "custom_hero_metaobject_products_jLJYYh"
   ]
 }
