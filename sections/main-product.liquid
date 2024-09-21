@@ -45,7 +45,12 @@
     object-fit: cover;
   }
 
+  .product-template-{{ section.id }} .swiper-wrapper {
+    align-items: center !important;
+  }
+
   .product-template-{{ section.id }} .custom-hero-container-images-metaobject-products {
+    display: block;
     grid-template-areas: none;
   }
 
@@ -257,7 +262,27 @@
             <div class="page-width">
               <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
               <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
-                {% render 'product-media-gallery', variant_images: variant_images %}
+                {% comment %} {% render 'product-media-gallery', variant_images: variant_images %} {% endcomment %}
+                  <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                    {%- for media in product.media -%}
+                      <div class="swiper-slide">
+                        {{
+                          media.preview_image
+                          | image_url: width: 416
+                          | image_tag:
+                            loading: 'lazy',
+                            widths: '54, 74, 104, 162, 208, 324, 416',
+                            alt: media.alt
+                          | escape
+                        }}
+                      </div>
+                    {% endfor %}
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                  </div>
               </div>
               <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                 <product-info
@@ -880,35 +905,6 @@
         frame.scrollTop = (containerHeight - frameHeight) / 2;
     };
 
-    // Select the zoom-in button
-    let zoomInButton = document.querySelector(".custom-hero-container-zoom-in");
-
-    // Add a click event listener to the button
-    zoomInButton.addEventListener("click", (e) => {
-        // Select the wrapper element you want to zoom (replace with your wrapper class or ID)
-        let wrapper = document.querySelector(".custom-hero-container-content");
-
-        // Get the current size from the data attribute or set a default if not found
-        let currentSize = Number(wrapper.getAttribute("data-wrapper-size")) || 0;
-
-        console.log(currentSize, "currentSize");
-        let mql = window.matchMedia("(max-width: 650px)");
-        console.log(mql, "mql");
-
-
-        // Set a maximum size limit
-        if (currentSize < 90) {
-            currentSize += 2; // Change the zoom increment here if needed
-        }
-
-        // Apply the new max-width to the wrapper element
-        wrapper.style.maxWidth = `${currentSize}rem`;
-        wrapper.setAttribute("data-wrapper-size", `${currentSize}`);
-    });
-
-
-    let zoomOutButton = document.querySelector(".custom-hero-container-zoom-out");
-
     // Scroll buttons
     let scrollLeftButton = document.querySelector(".scroll-left-button");
     let scrollRightButton = document.querySelector(".scroll-right-button");
@@ -933,7 +929,7 @@
     scrollBottomButton.addEventListener("click", () => {
         let frame = document.querySelector(".custom-hero-container-metaobject");
         frame.scrollTop += 100; // You can adjust the scroll distance here
-    });
+    }); 
 </script>
 
 <!-- Initialize Swiper -->
@@ -949,69 +945,6 @@
       prevEl: '.swiper-button-prev',
     },
   });
-</script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const linksWithoutHrefAndWithCustomGalleryClass = document.querySelectorAll('a:not([href]).custom_hero_gallery');
-    const heroContatinerImagesWrapper = document.querySelector('.custom-hero-container-images');
-    const heroContatinerGalleryWrapper = document.querySelector('.custom-hero-container-gallery-details');
-
-    linksWithoutHrefAndWithCustomGalleryClass.forEach((link) => {
-      // Add a click event listener to each link
-      link.addEventListener('click', function () {
-        console.log(link.dataset, 'data set');
-        {% comment %} heroContatinerImagesWrapper.style.display = 'none'; {% endcomment %}
-        {% comment %} heroContatinerGalleryWrapper.style.display = 'flex'; {% endcomment %}
-        let sliderWrapper = document.querySelector('.swiper-wrapper');
-        sliderWrapper.innerHTML = "";
-
-        for (const key in link.dataset) {
-          if (link.dataset.hasOwnProperty(key)) {
-            // Create a new div for the swiper-slide
-            let swiperSlide = document.createElement('div');
-            swiperSlide.classList.add('swiper-slide');
-
-            // Create the img element and set its src attribute
-            let img = document.createElement('img');
-            img.src = link.dataset[key];
-
-            // Append the image to the swiper-slide div
-            swiperSlide.appendChild(img);
-
-            // Append the swiper-slide to the swiper-wrapper
-            sliderWrapper.appendChild(swiperSlide);
-          }
-        }
-
-        if (!heroContatinerImagesWrapper.classList.contains('hidden')) {
-            heroContatinerImagesWrapper.classList.add('hidden');
-            {% comment %} setTimeout(() => { {% endcomment %}
-                heroContatinerGalleryWrapper.classList.remove('hidden');
-            {% comment %} }, 500); // Delay to sync with CSS transition duration {% endcomment %}
-        } else {
-            heroContatinerGalleryWrapper.classList.add('hidden');
-            {% comment %} setTimeout(() => { {% endcomment %}
-                heroContatinerImagesWrapper.classList.remove('hidden');
-            {% comment %} }, 500); {% endcomment %}
-        }
-
-      });
-    });
-
-  });
-</script>
-
-<script>
-  // Parse the metaobject entries as JSON
-  var entries = {{ shop.metaobjects.hero.values | json }};
-
-  // Sort the entries by date
-  entries.sort(function(a, b) {
-    return new Date(b.date) - new Date(a.date);
-  });
-
-  console.log(entries)
 </script>
 
 {% schema %}
