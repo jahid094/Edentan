@@ -279,6 +279,10 @@ fieldset.product-form__input .form__label {
 
 .product-form__submit {
   margin-bottom: 1rem;
+  background: #ffffff !important;
+  color: #000 !important;
+  text-transform: uppercase !important;
+  border: none !important;
 }
 
 .no-js .product-form__submit.button--secondary {
@@ -467,9 +471,9 @@ a.product__text {
   margin: 0 auto 1.2rem auto;
 }
 
-.product-form__buttons {
+/* .product-form__buttons {
   max-width: 44rem;
-}
+} */
 
 .product--no-media .product__info-container > modal-opener {
   display: block;
