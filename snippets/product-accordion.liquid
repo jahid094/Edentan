@@ -1,0 +1,86 @@
+<style>
+.pdp_accordion_btn {
+  background-color: #d9d9d9 !important;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  border-top: 2px solid #717171;
+  {% comment %} border-bottom: 2px solid #717171; {% endcomment %}
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.pdp_accordion_btn::after {
+  content: "+"; /* Default icon */
+  font-size: 20px;
+  position: absolute;
+  right: 20px; /* Adjust spacing from the right edge */
+  transition: 0.4s;
+}
+.accordion-active::after {
+  content: "-"; /* Change to minus icon when active */
+}
+.pdp_accordion_btn:first-of-type {
+  border-top: 2px solid #717171;
+}
+.pdp_accordion_btn:last-of-type {
+  border-bottom: 2px solid #717171;
+}
+.accordion-active.pdp_accordion_btn:last-of-type {
+  border-bottom: none;
+}
+.accordion-active, .pdp_accordion_btn:hover {
+  background-color: #d9d9d9 !important
+}
+.pdp_accordion_panel {
+  padding: 0 18px;
+  display: none;
+  background-color: #d9d9d9 !important;
+  overflow: hidden;
+}
+.pdp_accordion_panel:last-of-type {
+  border-bottom: 2px solid #717171;
+}
+</style>
+
+<div class="pdp_accordion_wrapper">
+    {%- if product.metafields.custom.dimensions != blank -%}
+        <button class="pdp_accordion_btn">DIMENSIONS</button>
+        <div class="pdp_accordion_panel">
+            <p>
+            {{ product.metafields.custom.dimensions }}
+            </p>
+        </div>
+    {%- endif -%}
+
+    {%- if product.metafields.custom.fabric_and_care != blank -%}
+        <button class="pdp_accordion_btn">FABRIC & CARE</button>
+        <div class="pdp_accordion_panel">
+          <p>
+            {{ product.metafields.custom.fabric_and_care }}
+          </p>
+        </div>
+    {%- endif -%}
+
+</div>
+
+
+<script>
+var acc = document.getElementsByClassName("pdp_accordion_btn");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("accordion-active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
