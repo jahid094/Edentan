@@ -90,7 +90,7 @@
 
 
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 20px;
 }
 
@@ -107,7 +107,7 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #7e7e7e; 
-}
+} */
 @media screen and (max-width: 1600px) {
   .custom-hero-container {
     left: 17vw;

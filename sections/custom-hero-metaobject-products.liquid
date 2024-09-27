@@ -25,6 +25,18 @@
       justify-content: center;
   }
 
+  .swiper-slider-title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    text-align: center;
+    right: 0;
+    z-index: 9;
+    transform: translate(-50%, 50%);
+    font-size: 19px;
+    font-weight: 600;
+  }
+
   swiper-container {
     display: block;
     width: 100%;
@@ -259,6 +271,7 @@
             {% endif %}
             class="custom_hero_product_image-link {% if is_gallery_exists == true %}custom_hero_gallery{% endif %}"
             style="grid-area:{{ value.main_position }}{{ positionNumber }}"
+            slider-title = "{{value.title}}"
             {%- if value.gallery_1 -%}
               data-gallery_1="{{ value.gallery_1.value | image_url }}"
             {%- endif -%}
@@ -304,6 +317,7 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
+        <div class="swiper-slider-title">Product title demo text text text </div>
       </div>
   </div>
 </div>
@@ -432,6 +446,9 @@
         {% comment %} heroContatinerGalleryWrapper.style.display = 'flex'; {% endcomment %}
         let sliderWrapper = document.querySelector('.swiper-wrapper');
         sliderWrapper.innerHTML = "";
+
+        let sliderTitle = document.querySelector('.swiper-slider-title');
+        sliderTitle.innerHTML = link.getAttribute("slider-title");
 
         for (const key in link.dataset) {
           if (link.dataset.hasOwnProperty(key)) {
