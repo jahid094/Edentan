@@ -581,6 +581,10 @@
 
         let sliderTitle = document.querySelector('.swiper-slider-title');
         sliderTitle.innerHTML = link.getAttribute("slider-title");
+        let footerBreadcrum = document.querySelector('.custom-footer-breadcrumb');
+        console.log(footerBreadcrum, "footerBreadcrum");
+        {% comment %} footerBreadcrum.innerHTML = footerBreadcrum.innerHTML + link.getAttribute("slider-title").toUpperCase(); {% endcomment %}
+
 
         for (const key in link.dataset) {
           if (link.dataset.hasOwnProperty(key)) {
@@ -611,6 +615,11 @@
                 heroContatinerImagesWrapper.classList.remove('hidden');
             {% comment %} }, 500); {% endcomment %}
         }
+
+
+        setTimeout(()=> {
+          footerBreadcrum.innerHTML += ` <strong>${link.getAttribute("slider-title").toUpperCase()}</strong>`;
+        }, 200)
 
       });
     });
