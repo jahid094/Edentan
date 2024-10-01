@@ -109,6 +109,13 @@
         "content": "t:settings_schema.typography.settings.header__1.content"
       },
       {
+        "type": "checkbox",
+        "id": "enable_header_custom_font",
+        "label": "Enable Neue Haas Grotesk Text Pro Custom Font For Header",
+        "info": "If you enable this, [Neue Haas Grotesk Text Pro] custom font will be applied on header",
+        "default": true
+      },
+      {
         "type": "font_picker",
         "id": "type_header_font",
         "default": "assistant_n4",
@@ -128,6 +135,13 @@
       {
         "type": "header",
         "content": "t:settings_schema.typography.settings.header__2.content"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_body_custom_font",
+        "label": "Enable Neue Haas Grotesk Text Pro Custom Font For Body",
+        "info": "If you enable this, [Neue Haas Grotesk Text Pro] custom font will be applied on body",
+        "default": true
       },
       {
         "type": "font_picker",

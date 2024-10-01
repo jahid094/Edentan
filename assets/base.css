@@ -2539,6 +2539,8 @@ product-info .loading__spinner:not(.hidden) ~ *,
     justify-self: center;
     text-align: center;
   }
+
+
 }
 
 /* Header icons */
@@ -2546,7 +2548,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
   display: flex;
   grid-area: icons;
   justify-self: end;
-  padding-right: 5rem;
+  padding-right: 1rem;
 }
 
 .header__icons .shopify-app-block {
@@ -2557,8 +2559,8 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .cart_name {
   padding: 1.2rem;
-  color: rgba(var(--color-foreground), 1);
-  font-size: 1.5rem;
+  color: #232323;
+  font-size: 1.4rem;
   font-weight: 500;
   line-height: 12.23px;
   letter-spacing: .12em;
@@ -2574,7 +2576,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 }
 
 .number_of_quantity_in_cart_wrapper {
-  color: rgba(var(--color-foreground), 1);
+  color: #232323;
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1;
@@ -2667,7 +2669,7 @@ menu-drawer + .header__search {
 .header__search {
   display: flex;
   line-height: 0;
-  min-width: 150px;
+  min-width: 140px;
   align-items: center;
 }
 
@@ -2727,8 +2729,8 @@ details[open] .modal-overlay::after {
 
 .search_label {
   padding: 1.2rem;
-  color: rgba(var(--color-foreground), 1);
-  font-size: 1.5rem;
+  color: #232323;
+  font-size: 1.4rem;
   font-weight: 400;
   line-height: 12.23px;
   letter-spacing: .12em;
@@ -2876,16 +2878,15 @@ details[open] > .header__submenu {
   padding: 0 1rem;
 }
 .header__menu-item {
-  padding: 1.2rem;
-  text-decoration: none;
-  color: rgba(var(--color-foreground), .75);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 400;
-  line-height: 12.23px;
-  letter-spacing: 0.12em;
+  letter-spacing: .12em;
   text-align: left;
   text-transform: uppercase;
   text-decoration: none;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #232323;
 }
 
 .header__menu-item:hover {
@@ -2916,7 +2917,7 @@ details[open] > .header__menu-item .icon-caret {
 
 .header__active-menu-item {
   transition: text-decoration-thickness var(--duration-short) ease;
-  color: rgb(var(--color-foreground));
+  color: #232323;
   text-decoration: underline;
   text-underline-offset: 0.3rem;
 }

@@ -33,8 +33,9 @@
     right: 0;
     z-index: 9;
     transform: translate(-50%, 50%);
-    font-size: 19px;
+    font-size: 1.8rem;
     font-weight: 600;
+    color: #232323;
   }
 
   swiper-container {
@@ -68,7 +69,7 @@
   }
 
   .swiper-pagination-bullet-active {
-    background: #000;
+    background: #232323;
   }
 
   .swiper-button-prev {
@@ -181,31 +182,33 @@
         </div>
 
         <div class="custom-hero-container-zoom">
-          <div class="custom-hero-container-zoom-in">
-            <svg
-              class="w-6 h-6 text-gray-800 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M10 7v6m-3-3h6m4 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
-            </svg>
-          </div>
-          <div class="custom-hero-container-zoom-out">
-            <svg
-              class="w-6 h-6 text-gray-800 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M7 10h6m4 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
-            </svg>
+          <div class="custom-zoom-buttons-wrapper">
+            <div class="custom-hero-container-zoom-in">
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M10 7v6m-3-3h6m4 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+              </svg>
+            </div>
+            <div class="custom-hero-container-zoom-out">
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M7 10h6m4 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+              </svg>
+            </div>    
           </div>
         </div>
       </div>
