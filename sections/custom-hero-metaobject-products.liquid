@@ -98,12 +98,12 @@
       <div class="custom-hero-menu-links">
         <ul class="custom-hero-filter-ul">
           {%- for link in section.settings.filter.links -%}
-            <li>
+            <li class="main-menu-list collections-{{ link.title | downcase }} pages-{{ link.title | downcase }}">
               <a class="custom-hero-menu-link" href="{{ link.url }}">{{ link.title }}</a>
               {% if link.links %}
                 <ul class="custom-hero-submenu-ul">
                   {%- for child in link.links -%}
-                    <li>
+                    <li class="submenu-list collections-{{ child.title | downcase }}" >
                       <a class="custom-hero-submenu-link" href="{{ child.url }}">{{ child.title }}</a>
                     </li>
                   {% endfor %}
@@ -290,7 +290,8 @@
             {% endif %}
             class="custom_hero_product_image-link {% if is_gallery_exists == true %}custom_hero_gallery{% endif %}"
             style="grid-area:{{ value.main_position }}{{ positionNumber }}"
-            slider-title = "{{value.title}}"
+            grid-title = "{{value.title}}"
+            grid-page = "{{value.page}}"
             {%- if value.gallery_1 -%}
               data-gallery_1="{{ value.gallery_1.value | image_url }}"
             {%- endif -%}
@@ -455,117 +456,63 @@
   document.addEventListener('DOMContentLoaded', function () {
     const allLinksWithCustomGalleryClass = document.querySelectorAll('.custom_hero_gallery');
     const breadcrumbPath = document.querySelector('.custom-footer-breadcrumb');
-    const currentUrl = window.location.href;
-    if (currentUrl.includes('collections/acceessories')) {
-      const breadcrumb = `SHOP / ACCESSORIES /`;
-      breadcrumbPath.innerHTML = breadcrumb;
-    }else if (currentUrl.includes('collections/bags')) {
-      const breadcrumb = `SHOP / BAGS /`;
-      breadcrumbPath.innerHTML = breadcrumb;
-    }else if (currentUrl.includes('collections/clothes')) {
-      const breadcrumb = `SHOP / CLOTHES /`;
-      breadcrumbPath.innerHTML = breadcrumb;
-    }else if (currentUrl.includes('collections/sale')) {
-      const breadcrumb = `SHOP / SALE /`;
-      breadcrumbPath.innerHTML = breadcrumb;
-    }else if (currentUrl.includes('collections/aw23')) {
-      const breadcrumb = `COLLECTIONS / AW23 /`;
-      breadcrumbPath.innerHTML = breadcrumb;
-    }else if (currentUrl.includes('collections/aw24')) {
-      const breadcrumb = `COLLECTIONS / AW24 /`;
-      breadcrumbPath.innerHTML = breadcrumb;
-    }else if (currentUrl.includes('collections/fw15')) {
-      const breadcrumb = `COLLECTIONS / AW15 /`;
-      breadcrumbPath.innerHTML = breadcrumb;
-    }else if (currentUrl.includes('collections/all')) {
-      const breadcrumb = `ALL /`;
-      breadcrumbPath.innerHTML = breadcrumb;
-    }else if (currentUrl.includes('pages/features')) {
-      const breadcrumb = `FEATURES /`;
-      breadcrumbPath.innerHTML = breadcrumb;
-    }else if (currentUrl.includes('pages/collections')) {
-      const breadcrumb = `COLLECTIONS /`;
-      breadcrumbPath.innerHTML = breadcrumb;
-    }else {
-      const breadcrumb = `/`;
-      breadcrumbPath.innerHTML = breadcrumb;
+    const urlPathname = window.location.pathname === "/" ? '/index' : window.location.pathname;
+    const transformedPathname = urlPathname.substring(1).replace('/', '-');
+
+    const activeSubmenu = document.querySelector(`.submenu-list.${transformedPathname}`);
+    const activeMainMenu = document.querySelector(`.main-menu-list.${transformedPathname}`);
+    if(activeSubmenu){
+      activeSubmenu.classList.add('active');
+    }
+    if(activeMainMenu){
+      activeMainMenu.classList.add('active');
     }
 
     allLinksWithCustomGalleryClass.forEach((link) => {
-        link.addEventListener('mouseover', () => {
-            let gridTitle = link.getAttribute("slider-title");
+      link.addEventListener('mouseover', () => {
+        let gridTitle = link.getAttribute("grid-title");
+        let gridPage = link.getAttribute("grid-page");
+        
+        breadcrumbPath.innerHTML = `${gridPage} / <span>${gridTitle}</span>`;
 
-            if (currentUrl.includes('collections/acceessories')) {
+            {% comment %} if (urlPathname.includes('collections/acceessories')) {
               const breadcrumb = `SHOP / ACCESSORIES / <strong> ${gridTitle.toUpperCase()} </strong>`;
               breadcrumbPath.innerHTML = breadcrumb;
-            }else if (currentUrl.includes('collections/bags')) {
+            }else if (urlPathname.includes('collections/bags')) {
               const breadcrumb = `SHOP / BAGS / <strong> ${gridTitle.toUpperCase()} </strong>`;
               breadcrumbPath.innerHTML = breadcrumb;
-            }else if (currentUrl.includes('collections/clothes')) {
+            }else if (urlPathname.includes('collections/clothes')) {
               const breadcrumb = `SHOP / CLOTHES / <strong> ${gridTitle.toUpperCase()} </strong>`;
               breadcrumbPath.innerHTML = breadcrumb;
-            }else if (currentUrl.includes('collections/sale')) {
+            }else if (urlPathname.includes('collections/sale')) {
               const breadcrumb = `SHOP / SALE / <strong> ${gridTitle.toUpperCase()} </strong>`;
               breadcrumbPath.innerHTML = breadcrumb;
-            }else if (currentUrl.includes('collections/aw23')) {
+            }else if (urlPathname.includes('collections/aw23')) {
               const breadcrumb = `COLLECTIONS / AW23 / <strong> ${gridTitle.toUpperCase()} </strong>`;
               breadcrumbPath.innerHTML = breadcrumb;
-            }else if (currentUrl.includes('collections/aw24')) {
+            }else if (urlPathname.includes('collections/aw24')) {
               const breadcrumb = `COLLECTIONS / AW24 / <strong> ${gridTitle.toUpperCase()} </strong>`;
               breadcrumbPath.innerHTML = breadcrumb;
-            }else if (currentUrl.includes('collections/fw15')) {
+            }else if (urlPathname.includes('collections/fw15')) {
               const breadcrumb = `COLLECTIONS / AW15 / <strong> ${gridTitle.toUpperCase()} </strong>`;
               breadcrumbPath.innerHTML = breadcrumb;
-            }else if (currentUrl.includes('collections/all')) {
+            }else if (urlPathname.includes('collections/all')) {
               const breadcrumb = `ALL / <strong> ${gridTitle.toUpperCase()} </strong>`;
               breadcrumbPath.innerHTML = breadcrumb;
-            }else if (currentUrl.includes('pages/features')) {
+            }else if (urlPathname.includes('pages/features')) {
               const breadcrumb = `FEATURES / <strong> ${gridTitle.toUpperCase()} </strong>`;
               breadcrumbPath.innerHTML = breadcrumb;
-            }else if (currentUrl.includes('pages/collections')) {
+            }else if (urlPathname.includes('pages/collections')) {
               const breadcrumb = `COLLECTIONS / <strong> ${gridTitle.toUpperCase()} </strong>`;
               breadcrumbPath.innerHTML = breadcrumb;
             }else {
               const breadcrumb = `/ <strong> ${gridTitle.toUpperCase()} </strong>`;
               breadcrumbPath.innerHTML = breadcrumb;
-            }
+            } {% endcomment %}
         });
 
         link.addEventListener('mouseout', () => {
-          if (currentUrl.includes('collections/acceessories')) {
-            const breadcrumb = `SHOP / ACCESSORIES /`;
-            breadcrumbPath.innerHTML = breadcrumb;
-          }else if (currentUrl.includes('collections/bags')) {
-            const breadcrumb = `SHOP / BAGS /`;
-            breadcrumbPath.innerHTML = breadcrumb;
-          }else if (currentUrl.includes('collections/clothes')) {
-            const breadcrumb = `SHOP / CLOTHES /`;
-            breadcrumbPath.innerHTML = breadcrumb;
-          }else if (currentUrl.includes('collections/sale')) {
-            const breadcrumb = `SHOP / SALE /`;
-            breadcrumbPath.innerHTML = breadcrumb;
-          }else if (currentUrl.includes('collections/aw23')) {
-            const breadcrumb = `COLLECTIONS / AW23 /`;
-            breadcrumbPath.innerHTML = breadcrumb;
-          }else if (currentUrl.includes('collections/aw24')) {
-            const breadcrumb = `COLLECTIONS / AW24 /`;
-            breadcrumbPath.innerHTML = breadcrumb;
-          }else if (currentUrl.includes('collections/fw15')) {
-            const breadcrumb = `COLLECTIONS / AW15 /`;
-            breadcrumbPath.innerHTML = breadcrumb;
-          }else if (currentUrl.includes('collections/all')) {
-            const breadcrumb = `ALL /`;
-            breadcrumbPath.innerHTML = breadcrumb;
-          }else if (currentUrl.includes('pages/features')) {
-            const breadcrumb = `FEATURES /`;
-            breadcrumbPath.innerHTML = breadcrumb;
-          }else if (currentUrl.includes('pages/collections')) {
-            const breadcrumb = `COLLECTIONS /`;
-            breadcrumbPath.innerHTML = breadcrumb;
-          }else {
-            const breadcrumb = `/`;
-            breadcrumbPath.innerHTML = breadcrumb;
-          }
+          breadcrumbPath.innerHTML = ``;
         });
     });
 
@@ -579,15 +526,17 @@
         console.log(link.dataset, 'data set');
         {% comment %} heroContatinerImagesWrapper.style.display = 'none'; {% endcomment %}
         {% comment %} heroContatinerGalleryWrapper.style.display = 'flex'; {% endcomment %}
+        let footerBreadcrum = document.querySelector('.custom-footer-breadcrumb');
         let sliderWrapper = document.querySelector('.swiper-wrapper');
         sliderWrapper.innerHTML = "";
 
         let sliderTitle = document.querySelector('.swiper-slider-title');
-        sliderTitle.innerHTML = link.getAttribute("slider-title");
-        let footerBreadcrum = document.querySelector('.custom-footer-breadcrumb');
-        console.log(footerBreadcrum, "footerBreadcrum");
-        {% comment %} footerBreadcrum.innerHTML = footerBreadcrum.innerHTML + link.getAttribute("slider-title").toUpperCase(); {% endcomment %}
+        let gridTitle = link.getAttribute("grid-title");
+        let gridPage = link.getAttribute("grid-page");
+        sliderTitle.innerHTML = gridTitle;
 
+        console.log(footerBreadcrum, "footerBreadcrum")
+        
 
         for (const key in link.dataset) {
           if (link.dataset.hasOwnProperty(key)) {
@@ -621,7 +570,7 @@
 
 
         setTimeout(()=> {
-          footerBreadcrum.innerHTML += ` <strong>${link.getAttribute("slider-title").toUpperCase()}</strong>`;
+          footerBreadcrum.innerHTML = `${gridPage} / <span>${gridTitle}</span>`;
         }, 200)
 
       });

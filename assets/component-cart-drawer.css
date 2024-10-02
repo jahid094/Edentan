@@ -28,7 +28,7 @@
   transition: transform var(--duration-default) ease;
   position: absolute;
   right: 0;
-  top: 8.5vh;
+  top: 8vh;
 }
 
 .drawer__inner-empty {

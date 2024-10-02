@@ -2577,7 +2577,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .number_of_quantity_in_cart_wrapper {
   color: #232323;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
   line-height: 1;
   width: 30px;
