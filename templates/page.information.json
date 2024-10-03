@@ -7,9 +7,16 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "information_iDBNcx": {
+      "type": "information",
+      "settings": {
+        "menu": "page-menu"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "information_iDBNcx"
   ]
 }
