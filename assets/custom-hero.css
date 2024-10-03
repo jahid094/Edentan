@@ -500,6 +500,7 @@ a[href] .custom_hero_product_image {
 .custom-hero-container-images-metaobject-products {
   display: inline-grid;
   min-width: 100vw;
+  min-height: 85vh;
   /* gap: 1rem; */
   z-index: -3;
   position: absolute;
