@@ -54,13 +54,13 @@
 
 @media screen and (min-width: 990px) {
   .product--large:not(.product--no-media) .product__media-wrapper {
-    max-width: 65%;
+    max-width: 55%;
     width: calc(65% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   .product--large:not(.product--no-media) .product__info-wrapper {
     padding: 0 0 0 4rem;
-    max-width: 35%;
+    max-width: 100%;
     width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
@@ -279,10 +279,11 @@ fieldset.product-form__input .form__label {
 
 .product-form__submit {
   margin-bottom: 1rem;
-  background: #ffffff !important;
+  background: #fff !important;
   color: #000 !important;
   text-transform: uppercase !important;
   border: none !important;
+  box-shadow: 0px 0px 2px 0px #00000040;
 }
 
 .no-js .product-form__submit.button--secondary {
@@ -349,6 +350,7 @@ a.product__text {
 }
 
 .product__title > * {
+  font-size: 3rem !important;
   margin: 0;
 }
 

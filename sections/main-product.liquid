@@ -17,12 +17,18 @@
 
   .product-template-{{ section.id }} .custom-hero-container {
     position: fixed;
-    background: #d9d9d9;
+    /* background: #d9d9d9; */
+    background: #F0F0F0;
     width: 83vw;
     height: 85vh;
-    overflow: overlay;
+    overflow-y: hidden;
+    overflow-x: overlay;
     left: 15vw;
     top: 8.5vh;
+  }
+
+  .product-template-{{ section.id }} .page-width {
+    margin-top: 3rem;
   }
 
   .product-template-{{ section.id }} .grid__item.product__media-wrapper {
@@ -30,13 +36,16 @@
   }
 
   .product-template-{{ section.id }} .product__info-wrapper.grid__item.scroll-trigger {
-    max-height: 100vh;
+    max-height: 75vh;
+    max-width: 100%;
     scrollbar-width: none;
     overflow-y: scroll;
   }
 
   #MainProduct-{{ section.id }} {
-    background: #d9d9d9 !important;
+    /* background: #d9d9d9 !important; */
+    background: #F0F0F0 !important;
+
   }
 
   .product-template-{{ section.id }} swiper-container {
@@ -74,6 +83,9 @@
   }
 
   .product-template-{{ section.id }} .custom-hero-container-images-metaobject-products {
+    min-width: unset;
+    z-index: 1;
+    position: absolute;
     display: block;
     grid-template-areas: none;
   }

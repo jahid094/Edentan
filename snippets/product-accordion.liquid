@@ -1,12 +1,12 @@
 <style>
 .pdp_accordion_btn {
-  background-color: #d9d9d9 !important;
+  background: #F0F0F0 !important;
   color: #444;
   cursor: pointer;
   padding: 18px;
   width: 100%;
   border: none;
-  border-top: 2px solid #717171;
+  border-top: 1px solid #000;
   {% comment %} border-bottom: 2px solid #717171; {% endcomment %}
   text-align: left;
   outline: none;
@@ -24,25 +24,25 @@
   content: "-"; /* Change to minus icon when active */
 }
 .pdp_accordion_btn:first-of-type {
-  border-top: 2px solid #717171;
+  border-top: 1px solid #000;
 }
 .pdp_accordion_btn:last-of-type {
-  border-bottom: 2px solid #717171;
+  border-bottom: 1px solid #000;
 }
 .accordion-active.pdp_accordion_btn:last-of-type {
   border-bottom: none;
 }
-.accordion-active, .pdp_accordion_btn:hover {
+/* .accordion-active, .pdp_accordion_btn:hover {
   background-color: #d9d9d9 !important
-}
+} */
 .pdp_accordion_panel {
   padding: 0 18px;
   display: none;
-  background-color: #d9d9d9 !important;
+  background: #F0F0F0 !important;
   overflow: hidden;
 }
 .pdp_accordion_panel:last-of-type {
-  border-bottom: 2px solid #717171;
+  border-bottom: 1px solid #717171;
 }
 </style>
 
