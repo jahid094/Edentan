@@ -54,7 +54,7 @@
     height: 100%;
   }
 
-  .product-template-{{ section.id }} swiper-slide {
+  .product-template-{{ section.id }} .swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -71,11 +71,11 @@
     content: '' !important;
   }
 
-  .product-template-{{ section.id }} swiper-slide img {
+  .product-template-{{ section.id }} .swiper-slide img {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    scale: 1.3;
   }
 
   .product-template-{{ section.id }} .swiper-wrapper {
