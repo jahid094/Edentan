@@ -1,29 +1,9 @@
 {
   "sections": {
-    "custom_hero_PiU6i9": {
-      "type": "custom-hero",
-      "disabled": true,
-      "settings": {
-        "menu": "main-menu",
-        "collection": "frontpage",
-        "background_color": "#fcfcfc",
-        "image_width_1": 29,
-        "image_width_2": 20
-      }
-    },
-    "custom_hero_metaobject_akQJCN": {
-      "type": "custom-hero-metaobject",
-      "disabled": true,
-      "settings": {
-        "menu": "main-menu",
-        "background_color": "#fcfcfc",
-        "image_width_1": 10,
-        "image_width_2": 10
-      }
-    },
     "custom_hero_metaobject_products_EnX3gq": {
       "type": "custom-hero-metaobject-products",
       "settings": {
+        "filter": "main-menu",
         "menu": "main-menu",
         "background_color": "#fcfcfc",
         "image_width_1": 16,
@@ -32,8 +12,6 @@
     }
   },
   "order": [
-    "custom_hero_PiU6i9",
-    "custom_hero_metaobject_akQJCN",
     "custom_hero_metaobject_products_EnX3gq"
   ]
 }
