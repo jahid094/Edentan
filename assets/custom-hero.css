@@ -408,10 +408,14 @@ a.custom_hero_product_image-link {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  overflow: hidden;
 }
 
 a[href] .custom_hero_product_image {
   cursor: pointer;
+}
+.custom_hero_product_image {
+  scale: 1.2;
 }
 
 .custom-zoom-wrapper {
@@ -496,7 +500,7 @@ a[href] .custom_hero_product_image {
 .custom-hero-container-images-metaobject-products {
   display: inline-grid;
   min-width: 100vw;
-  gap: 1rem;
+  /* gap: 1rem; */
   z-index: -3;
   position: absolute;
   grid-template-areas:

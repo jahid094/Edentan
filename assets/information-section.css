@@ -1,0 +1,103 @@
+.layout-container-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.logo-wrapper {
+    flex-basis: 100px;
+    position: fixed;
+    left: 0;
+}
+
+
+.layout-container {
+    display: flex;
+    flex: 1;
+    max-width: 1600px;
+    background-color: #fff;
+    padding-top: 60px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/* .layout-container {
+    display: flex;
+    flex: 1;
+    width: 90vw;
+    max-width: 1200px;
+    background-color: #fff;
+    padding: 40px;
+} */
+.logo-wrapper {
+    width: 10vw;
+}
+.navigation-sidebar {
+    padding-right: 40px;
+    /* border-right: 1px solid #e6e6e6; */
+    /* min-width: 24vw; */
+    flex-basis: 200px;
+}
+.navigation-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navigation-list a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #232323;
+    display: flex;
+    justify-content: space-between;
+}
+/* Content area styling */
+.content-container {
+    padding-left: 40px;
+    flex: 1;
+}
+
+.shipping-costs-section {
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.delivery-info-section {
+    margin-bottom: 40px;
+    margin-top: 60px;
+}
+
+.additional-shipping-info-section {
+    margin-bottom: 40px;
+    margin-top: 60px;
+}
+
+.content-container h2 {
+    font-size: 16px;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #808080;
+
+}
+
+.content-container p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 10px;
+    color: #808080;
+
+}
+
+.page-footer-social {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+/* @media screen and (max-width: 1600px) {
+    .layout-container {
+        padding-right: 30px;
+    }
+} */

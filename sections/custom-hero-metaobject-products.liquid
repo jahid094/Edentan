@@ -299,8 +299,17 @@
             currentSize += 2; // you can change the zoom in with every zoom here
         }
         document.querySelectorAll(".custom_hero_product_image").forEach((img) => {
-            img.setAttribute("style", `max-width:${currentSize}rem;`)
+            img.setAttribute("style", `max-width:${currentSize}rem;`);
             img.setAttribute("data-image-size", `${currentSize}`)
+
+            console.log(currentSize, "currentSize zoomIn");
+            if(currentSize < 23) {
+              img.style.scale = "1.2";
+              img.parentElement.style.overflow = "hidden";
+            }else {
+              img.style.scale = "1.0";
+              img.parentElement.style.overflow = "unset";
+            }
         })
     });
 
@@ -331,6 +340,14 @@
         document.querySelectorAll(".custom_hero_product_image").forEach((img) => {
             img.setAttribute("style", `max-width:${currentSize}rem;`)
             img.setAttribute("data-image-size", `${currentSize}`)
+
+            if(currentSize < 23) {
+              img.style.scale = "1.2";
+              img.parentElement.style.overflow = "hidden";
+            }else {
+              img.style.scale = "1.0";
+              img.parentElement.style.overflow = "unset";
+            }
         })
     });
 
