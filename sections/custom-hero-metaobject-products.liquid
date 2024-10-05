@@ -10,6 +10,14 @@
     scale: 1.2;
   }
 
+.gallery-back-button {
+    position: absolute;
+    left: 2vw;
+    top: 2vh;
+    cursor: pointer;
+    z-index: 333;
+}
+
   @media only screen and (max-width:650px){
     .custom_hero_product_image {
       max-width: {{ section.settings.image_width_2 }}rem;
@@ -26,18 +34,18 @@
       justify-content: center;
   }
 
-  .swiper-slider-title {
+.swiper-slider-title {
     position: absolute;
-    top: 0;
+    top: 2vh;
     left: 50%;
     text-align: center;
     right: 0;
     z-index: 9;
     transform: translate(-50%, 50%);
     font-size: 1.8rem;
-    font-weight: 600;
     color: #232323;
-  }
+    text-transform: uppercase;
+}
 
   swiper-container {
     display: block;
@@ -247,6 +255,11 @@
       {% render 'custom-hero-grid-container', shop: shop, request: request,  %}
     </div>
     <div class="custom-hero-container-gallery-details hidden">
+      <div class="gallery-back-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24" fill="none">
+          <path d="M20 12H4M4 12L10 6M4 12L10 18" stroke="#000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
           {% comment %} <div class="swiper-slide">Slide 1</div>
@@ -421,100 +434,45 @@
         let gridPage = link.getAttribute("grid-page");
         
         breadcrumbPath.innerHTML = `${gridPage} / <span>${gridTitle}</span>`;
+      });
 
-            {% comment %} if (urlPathname.includes('collections/acceessories')) {
-              const breadcrumb = `SHOP / ACCESSORIES / <strong> ${gridTitle.toUpperCase()} </strong>`;
-              breadcrumbPath.innerHTML = breadcrumb;
-            }else if (urlPathname.includes('collections/bags')) {
-              const breadcrumb = `SHOP / BAGS / <strong> ${gridTitle.toUpperCase()} </strong>`;
-              breadcrumbPath.innerHTML = breadcrumb;
-            }else if (urlPathname.includes('collections/clothes')) {
-              const breadcrumb = `SHOP / CLOTHES / <strong> ${gridTitle.toUpperCase()} </strong>`;
-              breadcrumbPath.innerHTML = breadcrumb;
-            }else if (urlPathname.includes('collections/sale')) {
-              const breadcrumb = `SHOP / SALE / <strong> ${gridTitle.toUpperCase()} </strong>`;
-              breadcrumbPath.innerHTML = breadcrumb;
-            }else if (urlPathname.includes('collections/aw23')) {
-              const breadcrumb = `COLLECTIONS / AW23 / <strong> ${gridTitle.toUpperCase()} </strong>`;
-              breadcrumbPath.innerHTML = breadcrumb;
-            }else if (urlPathname.includes('collections/aw24')) {
-              const breadcrumb = `COLLECTIONS / AW24 / <strong> ${gridTitle.toUpperCase()} </strong>`;
-              breadcrumbPath.innerHTML = breadcrumb;
-            }else if (urlPathname.includes('collections/fw15')) {
-              const breadcrumb = `COLLECTIONS / AW15 / <strong> ${gridTitle.toUpperCase()} </strong>`;
-              breadcrumbPath.innerHTML = breadcrumb;
-            }else if (urlPathname.includes('collections/all')) {
-              const breadcrumb = `ALL / <strong> ${gridTitle.toUpperCase()} </strong>`;
-              breadcrumbPath.innerHTML = breadcrumb;
-            }else if (urlPathname.includes('pages/features')) {
-              const breadcrumb = `FEATURES / <strong> ${gridTitle.toUpperCase()} </strong>`;
-              breadcrumbPath.innerHTML = breadcrumb;
-            }else if (urlPathname.includes('pages/collections')) {
-              const breadcrumb = `COLLECTIONS / <strong> ${gridTitle.toUpperCase()} </strong>`;
-              breadcrumbPath.innerHTML = breadcrumb;
-            }else {
-              const breadcrumb = `/ <strong> ${gridTitle.toUpperCase()} </strong>`;
-              breadcrumbPath.innerHTML = breadcrumb;
-            } {% endcomment %}
-        });
-
-        link.addEventListener('mouseout', () => {
-          breadcrumbPath.innerHTML = ``;
-        });
+      link.addEventListener('mouseout', () => {
+        breadcrumbPath.innerHTML = ``;
+      });
     });
 
     const linksWithoutHrefAndWithCustomGalleryClass = document.querySelectorAll('a:not([href]).custom_hero_gallery');
     const heroContatinerImagesWrapper = document.querySelector('.custom-hero-container-images');
     const heroContatinerGalleryWrapper = document.querySelector('.custom-hero-container-gallery-details');
+    const zoomHeader = document.querySelector('.zoom-explore-header');
+    const zoomButtons = document.querySelector('.custom-zoom-wrapper');
+    const footerBreadcrum = document.querySelector('.custom-footer-breadcrumb');
 
     linksWithoutHrefAndWithCustomGalleryClass.forEach((link) => {
-      // Add a click event listener to each link
       link.addEventListener('click', function () {
-        console.log(link.dataset, 'data set');
-        {% comment %} heroContatinerImagesWrapper.style.display = 'none'; {% endcomment %}
-        {% comment %} heroContatinerGalleryWrapper.style.display = 'flex'; {% endcomment %}
-        let footerBreadcrum = document.querySelector('.custom-footer-breadcrumb');
         let sliderWrapper = document.querySelector('.swiper-wrapper');
-        sliderWrapper.innerHTML = "";
-
         let sliderTitle = document.querySelector('.swiper-slider-title');
         let gridTitle = link.getAttribute("grid-title");
         let gridPage = link.getAttribute("grid-page");
-        sliderTitle.innerHTML = gridTitle;
 
-        console.log(footerBreadcrum, "footerBreadcrum")
-        
+        sliderWrapper.innerHTML = "";
+        sliderTitle.innerHTML = gridTitle;
 
         for (const key in link.dataset) {
           if (link.dataset.hasOwnProperty(key)) {
-            // Create a new div for the swiper-slide
             let swiperSlide = document.createElement('div');
             swiperSlide.classList.add('swiper-slide');
-
-            // Create the img element and set its src attribute
             let img = document.createElement('img');
             img.src = link.dataset[key];
-
-            // Append the image to the swiper-slide div
             swiperSlide.appendChild(img);
-
-            // Append the swiper-slide to the swiper-wrapper
             sliderWrapper.appendChild(swiperSlide);
           }
         }
 
-        if (!heroContatinerImagesWrapper.classList.contains('hidden')) {
-            heroContatinerImagesWrapper.classList.add('hidden');
-            {% comment %} setTimeout(() => { {% endcomment %}
-                heroContatinerGalleryWrapper.classList.remove('hidden');
-            {% comment %} }, 500); // Delay to sync with CSS transition duration {% endcomment %}
-        } else {
-            heroContatinerGalleryWrapper.classList.add('hidden');
-            {% comment %} setTimeout(() => { {% endcomment %}
-                heroContatinerImagesWrapper.classList.remove('hidden');
-            {% comment %} }, 500); {% endcomment %}
-        }
-
+        heroContatinerGalleryWrapper.classList.remove('hidden');
+        heroContatinerImagesWrapper.classList.add('hidden');
+        zoomHeader.classList.add('hidden');
+        zoomButtons.classList.add('hidden');
 
         setTimeout(()=> {
           footerBreadcrum.innerHTML = `${gridPage} / <span>${gridTitle}</span>`;
@@ -523,6 +481,15 @@
       });
     });
 
+    const backButton = document.querySelector('.gallery-back-button');
+    if(backButton){
+      backButton.addEventListener('click', function(e) {
+        heroContatinerGalleryWrapper.classList.add('hidden');
+        heroContatinerImagesWrapper.classList.remove('hidden');
+        zoomHeader.classList.remove('hidden');
+        zoomButtons.classList.remove('hidden');
+      })
+    }
   });
 </script>
 

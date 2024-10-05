@@ -15,6 +15,14 @@
       justify-content: center;
   }
 
+  .gallery-back-button-pdp {
+    position: absolute;
+    left: 2vw;
+    top: 2vh;
+    cursor: pointer;
+    z-index: 333;
+  }
+
   .product-template-{{ section.id }} .custom-hero-container {
     position: fixed;
     /* background: #d9d9d9; */
@@ -74,6 +82,7 @@
   .product-template-{{ section.id }} .swiper-slide img {
     display: block;
     width: 100%;
+    height: 75vh;
     object-fit: contain;
     scale: 1.3;
   }
@@ -216,6 +225,11 @@
 
             {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
             <div class="page-width">
+              <div class="gallery-back-button-pdp">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24" fill="none">
+                  <path d="M20 12H4M4 12L10 6M4 12L10 18" stroke="#000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
               <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
               <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
                 {% comment %} {% render 'product-media-gallery', variant_images: variant_images %} {% endcomment %}
@@ -225,10 +239,10 @@
                       <div class="swiper-slide">
                         {{
                           media.preview_image
-                          | image_url: width: 416
+                          | image_url: width: 1024
                           | image_tag:
                             loading: 'lazy',
-                            widths: '54, 74, 104, 162, 208, 324, 416',
+                            widths: '54, 74, 104, 162, 208, 324, 416, 512, 768, 1024',
                             alt: media.alt
                           | escape
                         }}
@@ -863,6 +877,11 @@
         let containerHeight = container.clientHeight
         frame.scrollLeft = (containerWidth - frameWidth) / 2;
         frame.scrollTop = (containerHeight - frameHeight) / 2;
+
+        let backButtonPdp = document.querySelector('.gallery-back-button-pdp');
+        backButtonPdp.addEventListener('click', ()=> {
+          window.history.back();
+        });
     };
 </script>
 

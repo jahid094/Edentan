@@ -73,7 +73,7 @@
             data-gallery_6="{{ value.gallery_6.value | image_url }}"
           {%- endif -%}
         >
-          <img width="" height="" class="custom_hero_product_image" src="{{ value.featured_image | img_url: 'large' }}">
+          <img width="{{ value.featured_image.width }}" height="{{ value.featured_image.height}}" class="custom_hero_product_image" src="{{ value.featured_image |  image_url: width: value.featured_image.width  }}">
         </a>
       {%- endif -%}
     {% endfor %}
@@ -150,7 +150,7 @@
             data-gallery_6="{{ value.gallery_6.value | image_url }}"
           {%- endif -%}
         >
-          <img width="" height="" class="custom_hero_product_image" src="{{ value.featured_image | img_url: 'large' }}">
+          <img width="{{ value.featured_image.width }}" height="{{ value.featured_image.height}}" class="custom_hero_product_image" src="{{ value.featured_image |  image_url: width: value.featured_image.width  }}">
         </a>
       {% endif %}
     {% endfor %}
@@ -227,7 +227,7 @@
             data-gallery_6="{{ value.gallery_6.value | image_url }}"
           {%- endif -%}
         >
-          <img width="" height="" class="custom_hero_product_image" src="{{ value.featured_image | img_url: 'large' }}">
+          <img width="{{ value.featured_image.width }}" height="{{ value.featured_image.height}}" class="custom_hero_product_image" src="{{ value.featured_image |  image_url: width: value.featured_image.width  }}">
         </a>
       {% endif %}
     {% endfor %}
@@ -303,7 +303,7 @@
           data-gallery_6="{{ value.gallery_6.value | image_url }}"
         {%- endif -%}
       >
-        <img width="" height="" class="custom_hero_product_image" src="{{ value.featured_image | img_url: 'large' }}">
+        <img width="{{ value.featured_image.width }}" height="{{ value.featured_image.height}}" class="custom_hero_product_image" src="{{ value.featured_image |  image_url: width: value.featured_image.width  }}">
       </a>
     {% endfor %}
   </div>
