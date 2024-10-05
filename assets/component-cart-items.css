@@ -99,7 +99,7 @@ cart-items .title-wrapper-with-link {
 }
 
 .cart-item__discounted-prices .cart-item__old-price {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 
 .cart-item__old-price {
@@ -111,7 +111,7 @@ cart-items .title-wrapper-with-link {
 }
 
 .product-option {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   word-break: break-word;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
 }
@@ -120,6 +120,10 @@ cart-items .title-wrapper-with-link {
   display: flex;
   margin-left: 1rem;
   justify-content: flex-end;
+}
+
+td.cart-quantity p {
+  font-size: 1.3rem;
 }
 
 /* @media screen and (min-width: 750px) and (max-width: 989px) {

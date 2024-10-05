@@ -344,7 +344,7 @@ h4,
 .h4 {
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
-  font-size: calc(var(--font-heading-scale) * 1.5rem);
+  font-size: calc(var(--font-heading-scale) * 1.3rem);
 }
 
 h5,
@@ -404,7 +404,7 @@ blockquote {
 }
 
 .caption-with-letter-spacing--large {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   letter-spacing: 0.18rem;
 }
 
@@ -414,7 +414,7 @@ blockquote {
 .field__input,
 .form__label,
 .select__select {
-  font-size: 1.3rem;
+  font-size: var(--font-heading-size);
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   letter-spacing: 0.04rem;
 }
@@ -426,7 +426,7 @@ blockquote {
 table:not([class]) {
   table-layout: fixed;
   border-collapse: collapse;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   border-style: hidden;
   box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.2);
   /* draws the table border  */
@@ -502,7 +502,7 @@ h6:empty {
   text-underline-offset: 0.3rem;
   color: rgb(var(--color-link));
   background-color: transparent;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-family: inherit;
 }
 
@@ -516,7 +516,7 @@ h6:empty {
 
 .link-with-icon {
   display: inline-flex;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.1rem;
   text-decoration: none;
@@ -877,7 +877,7 @@ summary::-webkit-details-marker {
 }
 
 .subtitle--small {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   letter-spacing: 0.1rem;
 }
 
@@ -1403,7 +1403,7 @@ button.shopify-payment-button__button--unbranded {
 }
 
 .share-button__button {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
   color: rgb(var(--color-link));
@@ -1846,7 +1846,7 @@ input[type='checkbox'] {
 .form__message {
   align-items: center;
   display: flex;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   line-height: 1;
   margin-top: 1rem;
 }
@@ -1856,7 +1856,7 @@ input[type='checkbox'] {
 }
 
 .customer .field .form__message {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   text-align: left;
 }
 
@@ -2561,7 +2561,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 .cart_name {
   padding: 1.2rem;
   color: #232323;
-  font-size: 1.4rem;
+  font-size: var(--font-heading-size);
   font-weight: 500;
   line-height: 12.23px;
   letter-spacing: .12em;
@@ -2578,7 +2578,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .number_of_quantity_in_cart_wrapper {
   color: #232323;
-  font-size: 1.3rem;
+  font-size: var(--font-heading-size);
   font-weight: 500;
   line-height: 1;
   width: 30px;
@@ -2731,7 +2731,7 @@ details[open] .modal-overlay::after {
 .search_label {
   padding: 1.2rem;
   color: #232323;
-  font-size: 1.4rem;
+  font-size: var(--font-heading-size);
   font-weight: 400;
   line-height: 12.23px;
   letter-spacing: .12em;
@@ -2880,7 +2880,7 @@ details[open] > .header__submenu {
   padding: 0 1rem;
 }
 .header__menu-item {
-  font-size: 1.4rem;
+  font-size: var(--font-heading-size);
   font-weight: 400;
   letter-spacing: .12em;
   text-align: left;
