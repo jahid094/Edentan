@@ -1,6 +1,5 @@
 .layout-container-wrapper {
     display: flex;
-    justify-content: center;
 }
 
 .logo-wrapper {
@@ -15,19 +14,11 @@
     flex: 1;
     max-width: 1600px;
     background-color: #fff;
-    padding-top: 60px;
-    padding-left: 100px;
+    padding-top: 15vh;
+    margin-left: 270px;
     padding-right: 100px;
 }
 
-/* .layout-container {
-    display: flex;
-    flex: 1;
-    width: 90vw;
-    max-width: 1200px;
-    background-color: #fff;
-    padding: 40px;
-} */
 .logo-wrapper {
     width: 10vw;
 }

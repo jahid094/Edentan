@@ -284,9 +284,9 @@
 
 
 img.custom-hero-menu-logo {
+  position: absolute;
   max-width: 50px;
-  width: 100%;
-  height: 100%;
+  top: -40px;
 }
 
 .custom-hero-menu-links {
@@ -409,7 +409,7 @@ a[href] .custom_hero_product_image {
   cursor: pointer;
 }
 .custom_hero_product_image {
-  scale: 1.2;
+  /* scale: 1.2; */
 }
 
 .custom-zoom-wrapper {

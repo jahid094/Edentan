@@ -7,7 +7,9 @@
 <style>
   .custom_hero_product_image {
     max-width: {{ section.settings.image_width_1 }}rem;
-    scale: 1.2;
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
 .gallery-back-button {
@@ -317,13 +319,13 @@
             img.setAttribute("style", `max-width:${currentSize}rem;`);
             img.setAttribute("data-image-size", `${currentSize}`)
 
-            if(currentSize < 23) {
-              img.style.scale = "1.2";
-              img.parentElement.style.overflow = "hidden";
-            }else {
-              img.style.scale = "1.0";
-              img.parentElement.style.overflow = "unset";
-            }
+            // if(currentSize < 23) {
+            //   img.style.scale = "1.2";
+            //   img.parentElement.style.overflow = "hidden";
+            // }else {
+            //   img.style.scale = "1.0";
+            //   img.parentElement.style.overflow = "unset";
+            // }
         })
     });
 
@@ -360,13 +362,13 @@
             img.setAttribute("style", `max-width:${currentSize}rem;`)
             img.setAttribute("data-image-size", `${currentSize}`)
 
-            if(currentSize < 23) {
-              img.style.scale = "1.2";
-              img.parentElement.style.overflow = "hidden";
-            }else {
-              img.style.scale = "1.0";
-              img.parentElement.style.overflow = "unset";
-            }
+            // if(currentSize < 23) {
+            //   img.style.scale = "1.2";
+            //   img.parentElement.style.overflow = "hidden";
+            // }else {
+            //   img.style.scale = "1.0";
+            //   img.parentElement.style.overflow = "unset";
+            // }
         })
     });
 
