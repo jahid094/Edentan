@@ -47,6 +47,7 @@
         <a
           {% if value.link != blank %}
             href="{{ value.link }}"
+            target="_blank"
           {% elsif value.product != blank %}
             href="{{ value.product.value.url }}"
           {% endif %}
@@ -124,6 +125,7 @@
         <a
           {% if value.link != blank %}
             href="{{ value.link }}"
+            target="_blank"
           {% elsif value.product != blank %}
             href="{{ value.product.value.url }}"
           {% endif %}
@@ -201,6 +203,7 @@
         <a
           {% if value.link != blank %}
             href="{{ value.link }}"
+            target="_blank"
           {% elsif value.product != blank %}
             href="{{ value.product.value.url }}"
           {% endif %}
@@ -277,6 +280,7 @@
       <a
         {% if value.link != blank %}
           href="{{ value.link }}"
+          target="_blank"
         {% elsif value.product != blank %}
           href="{{ value.product.value.url }}"
         {% endif %}

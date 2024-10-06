@@ -17,6 +17,7 @@
     padding-top: 15vh;
     margin-left: 270px;
     padding-right: 100px;
+    height: 100vh;
 }
 
 .logo-wrapper {
@@ -44,6 +45,11 @@
 .content-container {
     padding-left: 40px;
     flex: 1;
+    height: 85vh;
+    flex-grow: 1;
+    overflow-y: scroll;
+    background-color: #fff;
+    scrollbar-width: none;
 }
 
 .shipping-costs-section {
