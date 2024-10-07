@@ -323,6 +323,21 @@ fieldset.product-form__input .form__label {
 .product__info-container iframe {
   max-width: 100%;
 }
+.product__description {
+  height: 42vh;
+  max-width: 100%;
+  scrollbar-width: none;
+  overflow-y: scroll;
+  display: flex;
+  align-items: flex-end;
+}
+.product__description-inner {
+  margin-top: auto !important;
+  color: #000 !important;
+}
+.product__description-inner p{
+  color: #000 !important;
+}
 
 .product__info-container .product-form,
 .product__info-container .product__description,
@@ -352,6 +367,7 @@ a.product__text {
 .product__title > * {
   font-size: 3rem !important;
   margin: 0;
+  letter-spacing: 0.12em;
 }
 
 .product__title > a {
@@ -372,6 +388,7 @@ a.product__text {
 
 .product .price .badge {
   margin-bottom: 0.5rem;
+  letter-spacing: 0.12em;
 }
 
 .product .price__container {

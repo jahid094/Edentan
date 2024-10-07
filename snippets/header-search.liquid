@@ -13,7 +13,7 @@
     <summary
       class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle"
       aria-haspopup="dialog"
-      aria-label="{{ 'general.search.search' | t }}"
+      aria-label="Product Search"
     >
       <span>
         <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false">
@@ -23,13 +23,13 @@
           <use href="#icon-close">
         </svg>
       </span>
-      <span class="search_label">SEARCH</span>
+      <span class="search_label">Product Search</span>
     </summary>
     <div
       class="search-modal modal__content gradient"
       role="dialog"
       aria-modal="true"
-      aria-label="{{ 'general.search.search' | t }}"
+      aria-label="Product Search"
     >
       <div class="modal-overlay"></div>
       <div
@@ -49,7 +49,7 @@
               type="search"
               name="q"
               value="{{ search.terms | escape }}"
-              placeholder="{{ 'general.search.search' | t }}"
+              placeholder="Product Search"
               {%- if settings.predictive_search_enabled -%}
                 role="combobox"
                 aria-expanded="false"
@@ -63,7 +63,7 @@
                 spellcheck="false"
               {%- endif -%}
             >
-            <label class="field__label" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
+            <label class="field__label" for="{{ input_id }}">Product Search</label>
             <input type="hidden" name="options[prefix]" value="last">
             <button
               type="reset"
@@ -74,7 +74,7 @@
                 <use xlink:href="#icon-reset">
               </svg>
             </button>
-            <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+            <button class="search__button field__button" aria-label="Product Search">
               <svg class="icon icon-search" aria-hidden="true" focusable="false">
                 <use href="#icon-search">
               </svg>

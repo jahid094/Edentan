@@ -339,6 +339,7 @@ a.custom-hero-menu-link {
   font-weight: var(--font-heading-weight);
   font-size: var(--font-heading-size);
   text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 a.custom-hero-menu-link:hover {
@@ -353,6 +354,7 @@ a.custom-hero-submenu-link {
   font-weight: var(--font-heading-weight);
   font-size: var(--font-heading-size);
   text-transform: uppercase;
+  letter-spacing: 0.12em;a.custom-hero-menu-link
 }
 
 a.custom-hero-submenu-link:hover {

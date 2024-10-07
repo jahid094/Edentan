@@ -24,7 +24,7 @@
     width: 10vw;
 }
 .navigation-sidebar {
-    padding-right: 40px;
+    /* padding-right: 40px; */
     /* border-right: 1px solid #e6e6e6; */
     /* min-width: 24vw; */
     flex-basis: 200px;
@@ -40,6 +40,7 @@
     color: #232323;
     display: flex;
     justify-content: space-between;
+    letter-spacing: 0.12em;
 }
 /* Content area styling */
 .content-container {
