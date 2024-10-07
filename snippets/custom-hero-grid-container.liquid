@@ -90,38 +90,38 @@
     <!-- PLEASE CHANGE THE NAME HERE -->
 
     {% for value in shop.metaobjects.hero.values %}
-      {% if value.main_position == 'a' %}
-        {% assign a_count = a_count | plus: 1 %}
-        {% assign positionNumber = a_count %}
-      {% endif %}
-
-      {% if value.main_position == 'b' %}
-        {% assign b_count = b_count | plus: 1 %}
-        {% assign positionNumber = b_count %}
-      {% endif %}
-
-      {% if value.main_position == 'c' %}
-        {% assign c_count = c_count | plus: 1 %}
-        {% assign positionNumber = c_count %}
-      {% endif %}
-
-      {% if value.main_position == 'd' %}
-        {% assign d_count = d_count | plus: 1 %}
-        {% assign positionNumber = d_count %}
-      {% endif %}
-
-      {%- assign is_gallery_exists = false -%}
-      {% if value.gallery_1
-        or value.gallery_2
-        or value.gallery_3
-        or value.gallery_4
-        or value.gallery_5
-        or value.gallery_6
-      %}
-        {%- assign is_gallery_exists = true -%}
-      {% endif %}
-
       {%- if value.page == 'Collections' -%}
+        {% if value.main_position == 'a' %}
+          {% assign a_count = a_count | plus: 1 %}
+          {% assign positionNumber = a_count %}
+        {% endif %}
+
+        {% if value.main_position == 'b' %}
+          {% assign b_count = b_count | plus: 1 %}
+          {% assign positionNumber = b_count %}
+        {% endif %}
+
+        {% if value.main_position == 'c' %}
+          {% assign c_count = c_count | plus: 1 %}
+          {% assign positionNumber = c_count %}
+        {% endif %}
+
+        {% if value.main_position == 'd' %}
+          {% assign d_count = d_count | plus: 1 %}
+          {% assign positionNumber = d_count %}
+        {% endif %}
+
+        {%- assign is_gallery_exists = false -%}
+        {% if value.gallery_1
+          or value.gallery_2
+          or value.gallery_3
+          or value.gallery_4
+          or value.gallery_5
+          or value.gallery_6
+        %}
+          {%- assign is_gallery_exists = true -%}
+        {% endif %}
+
         <a
           {% if value.link != blank %}
             href="{{ value.link }}"
@@ -168,38 +168,38 @@
     <!-- PLEASE CHANGE THE NAME HERE -->
 
     {% for value in shop.metaobjects.hero.values %}
-      {% if value.main_position == 'a' %}
-        {% assign a_count = a_count | plus: 1 %}
-        {% assign positionNumber = a_count %}
-      {% endif %}
-
-      {% if value.main_position == 'b' %}
-        {% assign b_count = b_count | plus: 1 %}
-        {% assign positionNumber = b_count %}
-      {% endif %}
-
-      {% if value.main_position == 'c' %}
-        {% assign c_count = c_count | plus: 1 %}
-        {% assign positionNumber = c_count %}
-      {% endif %}
-
-      {% if value.main_position == 'd' %}
-        {% assign d_count = d_count | plus: 1 %}
-        {% assign positionNumber = d_count %}
-      {% endif %}
-
-      {%- assign is_gallery_exists = false -%}
-      {% if value.gallery_1
-        or value.gallery_2
-        or value.gallery_3
-        or value.gallery_4
-        or value.gallery_5
-        or value.gallery_6
-      %}
-        {%- assign is_gallery_exists = true -%}
-      {% endif %}
-
       {%- if value.page == 'Features' -%}
+        {% if value.main_position == 'a' %}
+          {% assign a_count = a_count | plus: 1 %}
+          {% assign positionNumber = a_count %}
+        {% endif %}
+
+        {% if value.main_position == 'b' %}
+          {% assign b_count = b_count | plus: 1 %}
+          {% assign positionNumber = b_count %}
+        {% endif %}
+
+        {% if value.main_position == 'c' %}
+          {% assign c_count = c_count | plus: 1 %}
+          {% assign positionNumber = c_count %}
+        {% endif %}
+
+        {% if value.main_position == 'd' %}
+          {% assign d_count = d_count | plus: 1 %}
+          {% assign positionNumber = d_count %}
+        {% endif %}
+
+        {%- assign is_gallery_exists = false -%}
+        {% if value.gallery_1
+          or value.gallery_2
+          or value.gallery_3
+          or value.gallery_4
+          or value.gallery_5
+          or value.gallery_6
+        %}
+          {%- assign is_gallery_exists = true -%}
+        {% endif %}
+
         <a
           {% if value.link != blank %}
             href="{{ value.link }}"

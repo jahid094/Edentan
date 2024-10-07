@@ -416,7 +416,8 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const allLinksWithCustomGalleryClass = document.querySelectorAll('.custom_hero_gallery');
+    // const allLinksWithCustomGalleryClass = document.querySelectorAll('.custom_hero_gallery');
+    const allGridsForCustomObject = document.querySelectorAll('.custom_hero_product_image-link');
     const breadcrumbPath = document.querySelector('.custom-footer-breadcrumb');
     const urlPathname = window.location.pathname === "/" ? '/index' : window.location.pathname;
     const transformedPathname = urlPathname.substring(1).replace('/', '-');
@@ -430,7 +431,7 @@
       activeMainMenu.classList.add('active');
     }
 
-    allLinksWithCustomGalleryClass.forEach((link) => {
+    allGridsForCustomObject.forEach((link) => {
       link.addEventListener('mouseover', () => {
         let gridTitle = link.getAttribute("grid-title");
         let gridPage = link.getAttribute("grid-page");
