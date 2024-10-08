@@ -257,6 +257,12 @@
   height: 92vh;
 }
 
+.zoom-trackpad-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 16vh;
+}
+
 .zoom-explore-header {
   font-size: 1.3rem;
   font-weight: 600;
