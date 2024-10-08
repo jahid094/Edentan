@@ -8,15 +8,18 @@
         "padding_bottom": 36
       }
     },
-    "information_iDBNcx": {
-      "type": "information",
+    "nav_page_UQipP6": {
+      "type": "nav-page",
       "settings": {
-        "menu": "page-menu"
+        "menu": "page-menu",
+        "information_page_handle": "information",
+        "contact_page_handle": "contact",
+        "about_page_handle": "contact"
       }
     }
   },
   "order": [
     "main",
-    "information_iDBNcx"
+    "nav_page_UQipP6"
   ]
 }

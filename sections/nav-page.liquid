@@ -1,4 +1,4 @@
-{{ 'information-section.css' | asset_url | stylesheet_tag }}
+{{ 'nav-page-section.css' | asset_url | stylesheet_tag }}
 
 <div class="layout-container-wrapper">
   <div class="logo-wrapper">
@@ -11,17 +11,9 @@
     <aside class="navigation-sidebar">
       <ul class="navigation-list">
         {%- for link in section.settings.menu.links -%}
-            <li><a href="{{ link.url }}">{{ link.title }}  →</a></li>
+        <li><a href="{{ link.url }}" class="{%- if link.handle == page.metafields.custom.menu_handle -%}active{%- endif -%}">{{ link.title }}  →</a></li>
+        {% comment %} <li>link handle - {{ link.handle }}</li> {% endcomment %}
         {% endfor %}
-
-        {% comment %} <li><a href="#">About →</a></li>
-        <li><a href="#">Contact →</a></li>
-        <li><a href="#">Shipping & Returns →</a></li>
-        <li><a href="#">Terms & Conditions →</a></li>
-        <li><a href="#">Privacy Policy →</a></li>
-        <li><a href="#">Newsletter →</a></li>
-        <li><a href="#">Stockists →</a></li> {% endcomment %}
-
       </ul>
     </aside>
 
@@ -86,9 +78,23 @@
   </div>
 </div>
 
+{%- if page.handle == "{{ section.settings.information_page_handle  }}"-%}
+  <script>
+    console.log("information page is executing");
+  </script>
+{%- elsif page.handle == "{{ section.settings.contact_page_handle  }}"-%}
+  <script>
+    console.log("contact page is executing");
+  </script>
+{%- elsif page.handle == "{{ section.settings.about_page_handle  }}"-%}
+  <script>
+    console.log("about page is executing");
+  </script>
+{%- endif -%}
+
 {% schema %}
 {
-  "name": "Information",
+  "name": "Nav Section",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -105,7 +111,7 @@
   ],
   "presets": [
     {
-      "name": "Information"
+      "name": "Nav Section"
     }
   ]
 }

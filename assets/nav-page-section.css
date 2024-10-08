@@ -42,6 +42,9 @@
     justify-content: space-between;
     letter-spacing: 0.12em;
 }
+.navigation-list a.active {
+    font-weight: 600;
+}
 /* Content area styling */
 .content-container {
     padding-left: 40px;
