@@ -1,5 +1,6 @@
 .custom-hero-container {
   width: calc(100% - 270px);
+  position: relative;
   flex-grow: 1;
   height: 86vh;
   background: #F0F0F0;
@@ -8,7 +9,30 @@
   border-radius: 10px;
   scrollbar-width: thin;
   scrollbar-color: #aaa #f5f5f5;
-  box-shadow: 0 0 23.3px #0000001a inset;
+  /* box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75); */
+  /* box-shadow: 0 0 23.3px #0000001a inset; */
+}
+
+.custom-hero-container::before {
+  content: '';
+  width: calc(100% - 290px);
+  display: inline-block;
+  position: fixed;
+  height: 1px;
+  left: 280px;
+  right: 20px;
+  z-index: 99999999;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+.custom-hero-container::after {
+  content: '';
+  position: fixed;
+  width: 2px;
+  top: 9vh;
+  height: 85vh;
+  left: 272px;
+  box-shadow: -7px 1px 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 13px -1px 4px -10px rgba(0,0,0,0.44); */
 }
 
 .custom-hero-container::-webkit-scrollbar {
