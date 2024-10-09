@@ -46,7 +46,7 @@
     font-weight: 600;
 }
 /* Content area styling */
-.content-container {
+.page-content-container {
     padding-left: 40px;
     flex: 1;
     height: 85vh;
@@ -102,3 +102,118 @@
         padding-right: 30px;
     }
 } */
+
+/* ************* CONTACT ************** */
+
+.contact-title {
+    font-size: 1.3rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-row {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-input,
+.contact-select,
+.contact-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.contact-input {
+    flex: 1;
+}
+
+.contact-select {
+    flex: 1;
+}
+
+.contact-textarea {
+    height: 150px;
+    resize: none;
+}
+
+.contact-submit {
+    width: 80px;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.contact-submit:hover {
+    background-color: darkred;
+}
+
+/* ************* NEWSLETTER ************** */
+
+
+.newsletter-title {
+    font-size: 1.3rem;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter-form p {
+    color: #232323;
+    font-size: 1.3rem;
+    margin-block: 0;
+    padding-block: 0;
+    margin-top: 20px;
+}
+
+.newsletter-row {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-input,
+.newsletter-select,
+.newsletter-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.newsletter-input {
+    flex: 1;
+}
+
+.newsletter-select {
+    flex: 1;
+}
+
+.newsletter-textarea {
+    height: 150px;
+    resize: none;
+}
+
+.newsletter-submit {
+    width: 80px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.newsletter-submit:hover {
+    background-color: darkred;
+}

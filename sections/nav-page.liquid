@@ -18,49 +18,8 @@
     </aside>
 
     <!-- Right Side Content -->
-    <section class="content-container">
-        {{ page.content  }}
-      {% comment %} <div class="shipping-costs-section">
-        <h2>SHIPPING COSTS</h2>
-        <p>
-          ITA: 9 € <br>
-          EUROPE & UK: 20 € / 17 £<br>
-          UNITED STATES & CANADA: 30 $<br>
-          SOUTH KOREA: 50000.00 ₩<br>
-          CHINA: 270 ¥<br>
-          REST OF THE WORLD: 45 €<br>
-          Free delivery on all orders above 300 € <br>
-        </p>
-        <p style="margin-top: 20px;">Please use option at checkout when applicable.</p>
-      </div>
-
-      <div class="delivery-info-section">
-        <h2>DELIVERY</h2>
-        <p>
-          Delivery to countries outside the EU may be subject to local import taxes, which are your responsibility. If
-          so, the shipping company may contact you once your Items are in customs to let you know the cost. Be aware
-          that this may delay your delivery time. It will be your responsibility to pay the necessary charges for local
-          authorities to release goods held at customs. Delivery times are provided as guidelines only and do not take
-          into account possible delays caused by payment authorisation and/or stock availability.
-        </p>
-        <p style="margin-top: 20px;text-transform: uppercase;">
-          ITA: 1-2 working days<br>
-          EUROPE: 2-3 working days <br>
-          REST OF THE WORLD: 2-3 working days<br>
-        </p>
-      </div>
-
-      <div class="additional-shipping-info-section">
-        <h2>ADDITIONAL SHIPPING INFO</h2>
-        <p>
-          Any customs or import duties are charged once the parcel reaches its destination country. These charges must
-          be paid by the recipient of the parcel. Unfortunately, we have no control over these charges and cannot tell
-          you what the cost would be, as customs policies and import duties vary from country to country. The customer
-          takes full liability for all postal charges, return shipment costs, customs charges and handling fees, should
-          they refuse to accept a parcel due to import duties or taxes. Please note - we cannot undervalue orders, or
-          mark them as a GIFT.
-        </p>
-      </div> {% endcomment %}
+    <section class="page-content-container">
+      {{ page.content  }} 
     </section>
 
     <div class="page-footer-social">
@@ -78,17 +37,17 @@
   </div>
 </div>
 
-{%- if page.handle == "{{ section.settings.information_page_handle  }}"-%}
+{%- if page.handle == "information" -%}
   <script>
     console.log("information page is executing");
   </script>
-{%- elsif page.handle == "{{ section.settings.contact_page_handle  }}"-%}
+{%- elsif page.handle == "contact" -%}
   <script>
     console.log("contact page is executing");
   </script>
-{%- elsif page.handle == "{{ section.settings.about_page_handle  }}"-%}
+{%- elsif page.handle == "newsletter" -%}
   <script>
-    console.log("about page is executing");
+    console.log("newsletter page is executing");
   </script>
 {%- endif -%}
 
