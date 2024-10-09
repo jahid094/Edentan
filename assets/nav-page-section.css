@@ -143,13 +143,12 @@
 }
 
 .contact-submit {
-    width: 80px;
     padding: 10px;
     background-color: red;
-    color: white;
+    color: #fff;
     border: none;
     cursor: pointer;
-    text-transform: uppercase;
+    text-transform: lowercase;
 }
 
 .contact-submit:hover {
